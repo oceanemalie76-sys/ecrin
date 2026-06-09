@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>L'Écrin — Rituel d'épargne</title>
+<!-- Police Fraunces : facultative, l'application fonctionne hors ligne avec la pile serif de secours -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   L'ÉCRIN — Design System « quiet luxury »
+   Palette : ivoire, sable, champagne, taupe, or discret
+   ============================================================ */
+:root{
+  --ivoire:#FBF7F0;
+  --ivoire-haut:#FDFBF6;
+  --sable:#EFE6D6;
+  --sable-fonce:#E4D7C2;
+  --champagne:#E9D7B7;
+  --taupe:#8C7D6D;
+  --taupe-fonce:#564C40;
+  --encre:#3B342B;
+  --or:#B6924E;
+  --or-clair:#D9BC82;
+  --or-pale:rgba(182,146,78,.14);
+  --blanc:#FFFFFF;
+  --ombre:0 10px 30px rgba(86,76,64,.10);
+  --ombre-douce:0 4px 14px rgba(86,76,64,.07);
+  --rayon:22px;
+  --serif:"Fraunces","Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--sans);
+  background:
+    radial-gradient(120% 60% at 50% -10%, var(--ivoire-haut) 0%, var(--ivoire) 60%),
+    var(--ivoire);
+  color:var(--encre);
+  min-height:100vh;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+.app{
+  max-width:480px;
+  margin:0 auto;
+  padding:28px 22px 90px;
+}
+
+/* ---------- Typographie ---------- */
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:400}
+
+.eyebrow{
+  font-size:.68rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--taupe);
+  font-weight:500;
+}
+
+/* ---------- En-tête ---------- */
+header{text-align:center;margin-bottom:26px}
+
+.logo{
+  font-family:var(--serif);
+  font-size:2rem;
+  font-weight:300;
+  letter-spacing:.04em;
+  color:var(--taupe-fonce);
+}
+.logo em{font-style:italic;color:var(--or)}
+
+.date-jour{
+  font-size:.78rem;
+  color:var(--taupe);
+  margin-top:4px;
+  text-transform:capitalize;
+}
+
+.niveau{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:12px;
+  padding:6px 16px;
+  border:1px solid var(--or-clair);
+  border-radius:999px;
+  background:var(--or-pale);
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:.92rem;
+  color:var(--taupe-fonce);
+}
+.niveau::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--or)}
+
+/* ---------- Cartes ---------- */
+.carte{
+  background:var(--blanc);
+  border-radius:var(--rayon);
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:var(--ombre-douce);
+  border:1px solid rgba(182,146,78,.10);
+}
+
+.carte h2{
+  font-size:1.18rem;
+  color:var(--taupe-fonce);
+  margin-bottom:4px;
+}
+
+.sous-titre{font-size:.8rem;color:var(--taupe);margin-bottom:14px}
+
+/* ---------- Rituel du jour ---------- */
+.defi-nom{
+  font-family:var(--serif);
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--or);
+  margin:10px 0 2px;
+}
+.defi-desc{font-size:.88rem;color:var(--encre);margin-bottom:16px}
+
+.micro-action{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px;
+  background:var(--ivoire);
+  border-radius:14px;
+  cursor:pointer;
+  transition:background .25s;
+  user-select:none;
+}
+.micro-action:active{background:var(--sable)}
+
+.coche{
+  flex:0 0 26px;
+  width:26px;height:26px;
+  border:1.5px solid var(--or-clair);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--blanc);
+  transition:all .3s ease;
+  margin-top:1px;
+}
+.coche svg{width:13px;height:13px;opacity:0;transform:scale(.4);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.micro-action.fait .coche{background:var(--or);border-color:var(--or)}
+.micro-action.fait .coche svg{opacity:1;transform:scale(1)}
+.micro-action.fait .micro-texte{color:var(--taupe);text-decoration:line-through;text-decoration-color:var(--or-clair)}
+
+.micro-texte{font-size:.9rem}
+
+.streak{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:14px;padding-top:14px;
+  border-top:1px dashed var(--sable-fonce);
+  font-size:.82rem;color:var(--taupe);
+}
+.streak b{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  color:var(--or);
+  font-weight:500;
+  margin-right:4px;
+}
+
+/* ---------- Médaillon central (signature) ---------- */
+.medaillon-zone{
+  text-align:center;
+  padding:30px 22px 26px;
+  position:relative;
+  overflow:hidden;
+}
+
+.medaillon{
+  position:relative;
+  width:168px;height:168px;
+  margin:14px auto 16px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:
+    radial-gradient(circle at 32% 28%, #F4E6C8 0%, var(--champagne) 38%, var(--or-clair) 72%, var(--or) 100%);
+  box-shadow:
+    0 14px 34px rgba(182,146,78,.35),
+    inset 0 2px 6px rgba(255,255,255,.65),
+    inset 0 -6px 14px rgba(86,76,64,.18);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;
+  transition:transform .2s ease, box-shadow .3s ease;
+  animation:respiration 4.5s ease-in-out infinite;
+}
+.medaillon::before{
+  /* anneau gravé */
+  content:"";
+  position:absolute;inset:10px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.55);
+  pointer-events:none;
+}
+.medaillon::after{
+  /* reflet qui balaie le médaillon */
+  content:"";
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.5) 48%, transparent 62%);
+  transform:translateX(-100%);
+  animation:reflet 5.5s ease-in-out infinite;
+  pointer-events:none;
+}
+.medaillon:active{transform:scale(.96)}
+
+.medaillon .m-label{
+  font-family:var(--serif);
+  font-size:1.02rem;
+  font-style:italic;
+  color:#4E4232;
+  line-height:1.25;
+  padding:0 18px;
+}
+.medaillon .m-sous{
+  font-size:.6rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(78,66,50,.75);
+  font-weight:600;
+}
+
+@keyframes respiration{
+  0%,100%{box-shadow:0 14px 34px rgba(182,146,78,.32), inset 0 2px 6px rgba(255,255,255,.65), inset 0 -6px 14px rgba(86,76,64,.18)}
+  50%{box-shadow:0 16px 44px rgba(182,146,78,.5), inset 0 2px 6px rgba(255,255,255,.65), inset 0 -6px 14px rgba(86,76,64,.18)}
+}
+@keyframes reflet{
+  0%,55%{transform:translateX(-110%) rotate(0)}
+  75%,100%{transform:translateX(110%) rotate(0)}
+}
+
+.citation{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:.95rem;
+  color:var(--taupe);
+  max-width:300px;
+  margin:6px auto 0;
+}
+.citation::before{content:"— "}
+
+/* ---------- Jauges ---------- */
+.montant-grand{
+  font-family:var(--serif);
+  font-size:2.1rem;
+  font-weight:300;
+  color:var(--taupe-fonce);
+  line-height:1.1;
+}
+.montant-grand small{font-size:1.1rem;color:var(--or)}
+
+.jauge{
+  height:10px;
+  background:var(--sable);
+  border-radius:999px;
+  overflow:hidden;
+  margin:14px 0 8px;
+  position:relative;
+}
+.jauge-remplie{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--or-clair), var(--or));
+  transition:width 1.2s cubic-bezier(.22,1,.36,1);
+  position:relative;
+}
+.jauge-remplie::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(110deg, transparent 35%, rgba(255,255,255,.45) 50%, transparent 65%);
+  animation:jauge-brille 3.2s ease-in-out infinite;
+}
+@keyframes jauge-brille{
+  0%,60%{transform:translateX(-100%)}
+  85%,100%{transform:translateX(100%)}
+}
+
+.jauge-infos{
+  display:flex;justify-content:space-between;
+  font-size:.78rem;color:var(--taupe);
+}
+.jauge-infos b{color:var(--or);font-weight:600}
+
+.compte-rebours{
+  display:flex;align-items:baseline;gap:8px;
+  margin-top:14px;padding-top:14px;
+  border-top:1px dashed var(--sable-fonce);
+  font-size:.82rem;color:var(--taupe);
+}
+.compte-rebours b{
+  font-family:var(--serif);
+  font-size:1.5rem;font-weight:400;color:var(--taupe-fonce);
+}
+
+/* ---------- Thermomètre Birkin ---------- */
+.birkin-tete{display:flex;justify-content:space-between;align-items:flex-start}
+
+.btn-discret{
+  border:1px solid var(--sable-fonce);
+  background:transparent;
+  color:var(--taupe);
+  font-size:.72rem;
+  padding:5px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-family:var(--sans);
+  transition:all .2s;
+}
+.btn-discret:active{background:var(--sable)}
+
+.birkin-pct{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:.92rem;
+  color:var(--or);
+  margin-top:6px;
+}
+
+.etapes{
+  display:flex;justify-content:space-between;
+  margin-top:10px;
+}
+.etape{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--sable-fonce);
+  transition:all .4s;
+}
+.etape.atteinte{background:var(--or);box-shadow:0 0 0 3px var(--or-pale)}
+
+/* ---------- Badges ---------- */
+.badges-grille{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.badge{
+  text-align:center;
+  opacity:.32;
+  filter:grayscale(.9);
+  transition:all .5s;
+}
+.badge.obtenu{opacity:1;filter:none}
+.badge-rond{
+  width:52px;height:52px;
+  margin:0 auto 6px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #F4E6C8, var(--champagne) 55%, var(--or-clair));
+  border:1px solid var(--or-clair);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;
+  box-shadow:inset 0 1px 3px rgba(255,255,255,.7), var(--ombre-douce);
+}
+.badge-nom{font-size:.62rem;color:var(--taupe);line-height:1.25}
+
+/* ---------- Timeline ---------- */
+.timeline{list-style:none;position:relative;padding-left:22px}
+.timeline::before{
+  content:"";
+  position:absolute;left:5px;top:6px;bottom:6px;
+  width:1px;
+  background:linear-gradient(var(--or-clair), var(--sable-fonce));
+}
+.timeline li{
+  position:relative;
+  padding:0 0 18px;
+  animation:entree .5s ease both;
+}
+.timeline li:last-child{padding-bottom:2px}
+.timeline li::before{
+  content:"";
+  position:absolute;left:-22px;top:6px;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--blanc);
+  border:2.5px solid var(--or);
+}
+.tl-montant{
+  font-family:var(--serif);
+  font-size:1.12rem;
+  color:var(--taupe-fonce);
+}
+.tl-montant small{color:var(--or)}
+.tl-meta{font-size:.74rem;color:var(--taupe)}
+.tl-defi{
+  display:inline-block;
+  font-size:.68rem;
+  font-style:italic;
+  font-family:var(--serif);
+  color:var(--or);
+  background:var(--or-pale);
+  border-radius:999px;
+  padding:2px 10px;
+  margin-top:3px;
+}
+@keyframes entree{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.vide{
+  text-align:center;
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--taupe);
+  font-size:.92rem;
+  padding:10px 0 4px;
+}
+
+/* ---------- Voile & feuilles modales ---------- */
+.voile{
+  position:fixed;inset:0;
+  background:rgba(59,52,43,.4);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+  z-index:50;
+}
+.voile.ouvert{opacity:1;pointer-events:auto}
+
+.feuille{
+  position:fixed;left:0;right:0;bottom:0;
+  max-width:480px;margin:0 auto;
+  background:var(--ivoire-haut);
+  border-radius:28px 28px 0 0;
+  padding:26px 24px calc(30px + env(safe-area-inset-bottom));
+  transform:translateY(105%);
+  transition:transform .42s cubic-bezier(.22,1,.36,1);
+  z-index:60;
+  box-shadow:0 -10px 40px rgba(86,76,64,.18);
+}
+.feuille.ouvert{transform:translateY(0)}
+
+.feuille h3{
+  font-size:1.3rem;
+  color:var(--taupe-fonce);
+  text-align:center;
+  margin-bottom:4px;
+}
+.feuille .sous-titre{text-align:center}
+
+.champ-montant{
+  display:flex;align-items:baseline;justify-content:center;
+  gap:6px;
+  margin:18px 0 6px;
+}
+.champ-montant input{
+  font-family:var(--serif);
+  font-size:2.6rem;
+  font-weight:300;
+  color:var(--taupe-fonce);
+  border:none;background:transparent;
+  border-bottom:1.5px solid var(--or-clair);
+  width:150px;
+  text-align:center;
+  outline:none;
+}
+.champ-montant input:focus{border-color:var(--or)}
+.champ-montant span{font-family:var(--serif);font-size:1.5rem;color:var(--or)}
+
+.note-min{text-align:center;font-size:.72rem;color:var(--taupe);margin-bottom:16px}
+.note-min.alerte{color:#A0522D}
+
+.puces{
+  display:flex;gap:10px;justify-content:center;
+  margin-bottom:20px;
+}
+.puce{
+  border:1px solid var(--or-clair);
+  background:var(--blanc);
+  color:var(--taupe-fonce);
+  font-family:var(--serif);
+  font-size:.95rem;
+  padding:8px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:all .2s;
+}
+.puce:active{background:var(--or-pale)}
+
+.lier-defi{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;
+  font-size:.82rem;color:var(--taupe);
+  margin-bottom:20px;
+  cursor:pointer;user-select:none;
+}
+.inter{
+  width:40px;height:23px;
+  border-radius:999px;
+  background:var(--sable-fonce);
+  position:relative;
+  transition:background .25s;
+  flex:0 0 40px;
+}
+.inter::after{
+  content:"";
+  position:absolute;top:2.5px;left:3px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--blanc);
+  transition:transform .25s;
+  box-shadow:0 1px 3px rgba(0,0,0,.2);
+}
+.lier-defi.actif .inter{background:var(--or)}
+.lier-defi.actif .inter::after{transform:translateX(16px)}
+
+.btn-principal{
+  display:block;width:100%;
+  border:none;
+  background:linear-gradient(135deg, var(--or-clair), var(--or));
+  color:#FFF;
+  font-family:var(--serif);
+  font-size:1.1rem;
+  letter-spacing:.03em;
+  padding:16px;
+  border-radius:999px;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(182,146,78,.4);
+  transition:transform .15s, box-shadow .2s;
+}
+.btn-principal:active{transform:scale(.97)}
+
+.btn-secondaire{
+  display:block;width:100%;
+  border:none;background:transparent;
+  color:var(--taupe);
+  font-size:.85rem;
+  padding:14px 0 0;
+  cursor:pointer;
+}
+
+/* Feuille objectif Birkin */
+#feuilleObjectif .champ-montant input{width:190px}
+
+/* ---------- Célébration ---------- */
+.celebration{
+  position:fixed;inset:0;
+  z-index:100;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .4s;
+}
+.celebration.actif{opacity:1;pointer-events:auto}
+.celebration .fond{
+  position:absolute;inset:0;
+  background:rgba(251,247,240,.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+#canvasOr{position:absolute;inset:0;width:100%;height:100%}
+
+.celebration-coeur{
+  position:relative;
+  text-align:center;
+  padding:0 30px;
+  transform:scale(.85);
+  transition:transform .55s cubic-bezier(.34,1.4,.64,1);
+}
+.celebration.actif .celebration-coeur{transform:scale(1)}
+
+.celebration-sceau{
+  width:90px;height:90px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, #F4E6C8, var(--champagne) 45%, var(--or) 100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 36px rgba(182,146,78,.45), inset 0 2px 5px rgba(255,255,255,.6);
+}
+.celebration-sceau svg{width:36px;height:36px}
+
+.celebration-montant{
+  font-family:var(--serif);
+  font-size:3rem;
+  font-weight:300;
+  color:var(--taupe-fonce);
+}
+.celebration-montant small{font-size:1.6rem;color:var(--or)}
+
+.celebration-msg{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.15rem;
+  color:var(--or);
+  margin-top:6px;
+}
+.celebration-detail{
+  font-size:.82rem;
+  color:var(--taupe);
+  margin-top:14px;
+}
+.celebration-fermer{
+  margin-top:26px;
+  border:1px solid var(--or-clair);
+  background:var(--blanc);
+  color:var(--taupe-fonce);
+  font-family:var(--serif);
+  font-size:.95rem;
+  padding:11px 34px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+/* Toast badge */
+.toast{
+  position:fixed;
+  left:50%;bottom:24px;
+  transform:translate(-50%,140%);
+  background:var(--taupe-fonce);
+  color:var(--ivoire);
+  font-size:.85rem;
+  padding:12px 22px;
+  border-radius:999px;
+  z-index:120;
+  transition:transform .45s cubic-bezier(.22,1,.36,1);
+  box-shadow:var(--ombre);
+  white-space:nowrap;
+}
+.toast.visible{transform:translate(-50%,0)}
+.toast em{color:var(--or-clair);font-family:var(--serif)}
+
+/* Pied */
+footer{
+  text-align:center;
+  font-size:.7rem;
+  color:var(--taupe);
+  opacity:.7;
+  margin-top:8px;
+}
+footer .serif{font-style:italic}
+
+/* Accessibilité mouvement */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===================== EN-TÊTE ===================== -->
+  <header>
+    <div class="logo">L'<em>Écrin</em></div>
+    <div class="date-jour" id="dateJour"></div>
+    <div class="niveau" id="niveau">Le Fil</div>
+  </header>
+
+  <!-- ===================== MÉDAILLON CENTRAL ===================== -->
+  <section class="carte medaillon-zone">
+    <div class="eyebrow">Le geste qui compte</div>
+    <button class="medaillon" id="btnMedaillon" aria-label="Enregistrer un virement vers le Livret A">
+      <span class="m-label">J'ai mis<br>de côté</span>
+      <span class="m-sous">Virement Livret A</span>
+    </button>
+    <p class="citation" id="citation"></p>
+  </section>
+
+  <!-- ===================== RITUEL DU JOUR ===================== -->
+  <section class="carte">
+    <div class="eyebrow">Rituel du jour</div>
+    <h2>Défi de la semaine</h2>
+    <p class="defi-nom" id="defiNom"></p>
+    <p class="defi-desc" id="defiDesc"></p>
+
+    <div class="micro-action" id="microAction" role="checkbox" aria-checked="false" tabindex="0">
+      <span class="coche">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2.5 8.5l3.5 3.5 7-8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="micro-texte" id="microTexte"></span>
+    </div>
+
+    <div class="streak">
+      <span><b id="streakNb">0</b>jour(s) de constance</span>
+      <span id="streakMsg">Le rituel commence aujourd'hui.</span>
+    </div>
+  </section>
+
+  <!-- ===================== CAGNOTTE SOLDES ===================== -->
+  <section class="carte">
+    <div class="eyebrow">Échéance de juin</div>
+    <h2>Cagnotte « Soldes d'été »</h2>
+    <p class="sous-titre">Tout ce que tu mets de côté d'ici là t'appartient doublement.</p>
+
+    <div class="montant-grand"><span id="soldesMontant">0</span><small> €</small></div>
+
+    <div class="jauge"><div class="jauge-remplie" id="soldesJauge"></div></div>
+    <div class="jauge-infos">
+      <span><b id="soldesPct">0 %</b> de l'ambition</span>
+      <span>cap : <span id="soldesObjectifTxt">300</span> € <button class="btn-discret" id="btnObjSoldes" style="margin-left:6px">ajuster</button></span>
+    </div>
+
+    <div class="compte-rebours" id="soldesRebours">
+      <b id="soldesJours">—</b><span id="soldesJoursTxt">jours avant l'ouverture des soldes</span>
+    </div>
+  </section>
+
+  <!-- ===================== OBJECTIF BIRKIN ===================== -->
+  <section class="carte">
+    <div class="birkin-tete">
+      <div>
+        <div class="eyebrow">North Star</div>
+        <h2>Vers le Birkin</h2>
+      </div>
+      <button class="btn-discret" id="btnObjBirkin">modifier l'objectif</button>
+    </div>
+    <p class="sous-titre">Chaque virement est un point de sellier sur ton futur sac.</p>
+
+    <div class="montant-grand"><span id="birkinMontant">0</span><small> €</small></div>
+    <p class="birkin-pct"><span id="birkinPct">0</span> % du chemin — objectif <span id="birkinObjectifTxt">10 000</span> €</p>
+
+    <div class="jauge"><div class="jauge-remplie" id="birkinJauge"></div></div>
+    <div class="etapes" id="etapes"></div>
+  </section>
+
+  <!-- ===================== BADGES ===================== -->
+  <section class="carte">
+    <div class="eyebrow">Cabinet de curiosités</div>
+    <h2>Distinctions</h2>
+    <p class="sous-titre">Elles se méritent, jamais ne s'achètent.</p>
+    <div class="badges-grille" id="badgesGrille"></div>
+  </section>
+
+  <!-- ===================== HISTORIQUE ===================== -->
+  <section class="carte">
+    <div class="eyebrow">Mémoire des victoires</div>
+    <h2>Tes plus beaux gestes</h2>
+    <p class="sous-titre" id="histResume"></p>
+    <ul class="timeline" id="timeline"></ul>
+    <p class="vide" id="histVide">La première page de ton histoire s'écrit avec le médaillon, juste au-dessus.</p>
+  </section>
+
+  <footer>
+    <span class="serif">L'Écrin</span> — tes données restent dans ton téléphone, et nulle part ailleurs.
+  </footer>
+</div>
+
+<!-- ===================== FEUILLE : VIREMENT ===================== -->
+<div class="voile" id="voile"></div>
+
+<div class="feuille" id="feuilleVirement" role="dialog" aria-modal="true" aria-label="Enregistrer un virement">
+  <h3>Un geste pour elle</h3>
+  <p class="sous-titre">Le montant que tu viens de virer sur ton Livret A</p>
+
+  <div class="champ-montant">
+    <input type="number" id="inputMontant" inputmode="decimal" min="10" step="0.01" placeholder="10">
+    <span>€</span>
+  </div>
+  <p class="note-min" id="noteMin">Minimum 10 € — la règle du Livret A</p>
+
+  <div class="puces">
+    <button class="puce" data-montant="10">10 €</button>
+    <button class="puce" data-montant="20">20 €</button>
+    <button class="puce" data-montant="50">50 €</button>
+    <button class="puce" data-montant="100">100 €</button>
+  </div>
+
+  <div class="lier-defi actif" id="lierDefi">
+    <span class="inter"></span>
+    <span>Rattacher au défi « <span id="lierDefiNom"></span> »</span>
+  </div>
+
+  <button class="btn-principal" id="btnValider">Sceller ce virement</button>
+  <button class="btn-secondaire" id="btnAnnuler">Pas maintenant</button>
+</div>
+
+<!-- ===================== FEUILLE : OBJECTIF BIRKIN ===================== -->
+<div class="feuille" id="feuilleObjectif" role="dialog" aria-modal="true" aria-label="Modifier l'objectif Birkin">
+  <h3>Ton Birkin, ton prix</h3>
+  <p class="sous-titre">Ajuste l'objectif selon le modèle dont tu rêves</p>
+  <div class="champ-montant">
+    <input type="number" id="inputObjectif" inputmode="numeric" min="100" step="100">
+    <span>€</span>
+  </div>
+  <p class="note-min">&nbsp;</p>
+  <button class="btn-principal" id="btnValiderObjectif">Graver ce nouvel objectif</button>
+  <button class="btn-secondaire" id="btnAnnulerObjectif">Annuler</button>
+</div>
+
+<!-- ===================== FEUILLE : OBJECTIF SOLDES ===================== -->
+<div class="feuille" id="feuilleSoldes" role="dialog" aria-modal="true" aria-label="Modifier l'ambition soldes">
+  <h3>Ambition « Soldes »</h3>
+  <p class="sous-titre">Combien veux-tu avoir mis de côté avant l'ouverture ?</p>
+  <div class="champ-montant">
+    <input type="number" id="inputObjSoldes" inputmode="numeric" min="10" step="10">
+    <span>€</span>
+  </div>
+  <p class="note-min">&nbsp;</p>
+  <button class="btn-principal" id="btnValiderObjSoldes">C'est noté</button>
+  <button class="btn-secondaire" id="btnAnnulerObjSoldes">Annuler</button>
+</div>
+
+<!-- ===================== CÉLÉBRATION ===================== -->
+<div class="celebration" id="celebration">
+  <div class="fond"></div>
+  <canvas id="canvasOr"></canvas>
+  <div class="celebration-coeur">
+    <div class="celebration-sceau">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L9.5 17.5 4 12" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="celebration-montant">+<span id="celebMontant">0</span><small> €</small></div>
+    <p class="celebration-msg" id="celebMsg"></p>
+    <p class="celebration-detail" id="celebDetail"></p>
+    <button class="celebration-fermer" id="btnFermerCeleb">Continuer mon chemin</button>
+  </div>
+</div>
+
+<!-- Toast badge -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   L'ÉCRIN — Logique applicative
+   Architecture :
+     1. Données statiques (défis, citations, badges, niveaux…)
+     2. Store (LocalStorage)
+     3. Utilitaires (dates, formats)
+     4. Rendu (une fonction par section)
+     5. Interactions (virement, streak, objectifs)
+     6. Célébration (particules dorées)
+     7. Initialisation
+   ============================================================ */
+
+/* ---------- 1. DONNÉES STATIQUES ---------- */
+
+// Bibliothèque de défis — un nouveau défi est proposé automatiquement chaque semaine
+const DEFIS = [
+  { id:"miroir",     nom:"Le Virement Miroir",      desc:"Chaque achat évité se transforme en virement du même montant (minimum 10 €). Le vêtement reste en boutique, l'argent reste à toi." },
+  { id:"tentations", nom:"Les Petites Tentations",  desc:"Chaque envie d'achat à laquelle tu ne cèdes pas déclenche un micro-virement de 10 €. La tentation devient ton alliée." },
+  { id:"mystere",    nom:"L'Enveloppe Mystère",     desc:"Cette semaine, le hasard décide : vire un montant tiré entre 10 et 50 €. Le tien : " },
+  { id:"transport",  nom:"Le Transport Élégant",    desc:"Chaque trajet économisé (marche, vélo, covoiturage) se convertit en virement. Tu avances, ton épargne aussi." },
+  { id:"24h",        nom:"La Règle des 24 Heures",  desc:"Une envie ? Note-la et attends 24 heures. Si elle s'est éteinte, vire 10 € pour célébrer ta lucidité." },
+  { id:"cafe",       nom:"Café Couture",            desc:"Chaque boisson à emporter remplacée par du fait-maison se cumule. En fin de semaine, vire le total (minimum 10 €)." },
+  { id:"vitrine",    nom:"Le Lèche-Vitrine Royal",  desc:"Offre-toi une vraie séance de lèche-vitrine — sans rien acheter. Au retour, vire 15 € : le plaisir des yeux, le profit du Livret." },
+  { id:"dimanche",   nom:"Le Dimanche Doré",        desc:"Chaque dimanche de cette quinzaine, un virement rituel de 20 € pour ouvrir la semaine avec panache." },
+  { id:"doublure",   nom:"La Doublure",             desc:"Reproduis ton dernier virement à l'identique. La régularité est la plus discrète des élégances." },
+  { id:"arrondi",    nom:"L'Arrondi Précieux",      desc:"En fin de semaine, arrondis tes dépenses à la dizaine supérieure et vire la différence (minimum 10 €)." },
+  { id:"unpourcent", nom:"Le Un Pour Cent",         desc:"Cette semaine, vire l'équivalent de 1 % de ton objectif Birkin. Un pour cent de rêve, cent pour cent de fierté." },
+  { id:"fantome",    nom:"Le Panier Fantôme",       desc:"Remplis un panier en ligne, contemple-le… puis ferme l'onglet et vire 10 % de sa valeur (minimum 10 €)." },
+];
+
+// Micro-actions quotidiennes — tournent selon le jour
+const MICRO_ACTIONS = [
+  "Aujourd'hui, je n'ai ouvert aucune application ou site de shopping.",
+  "J'ai résisté à au moins une tentation aujourd'hui.",
+  "J'ai pris une minute pour visualiser mon Birkin entre mes mains.",
+  "Je n'ai rien acheté d'impulsif aujourd'hui.",
+  "J'ai supprimé un e-mail promotionnel sans l'ouvrir.",
+  "J'ai porté ou admiré une pièce que je possède déjà et que j'aime.",
+  "J'ai noté une envie dans un coin de tête au lieu d'y céder.",
+];
+
+// Citations — patience, élégance, transformation
+const CITATIONS = [
+  "L'élégance, c'est savoir attendre.",
+  "Le vrai luxe se construit en silence.",
+  "Chaque jour de patience est un point de sellier.",
+  "Ce que tu n'achètes pas aujourd'hui t'habillera demain.",
+  "La rareté se cultive, elle ne s'attrape pas.",
+  "Ton futur sac se souvient de chacun de tes refus.",
+  "L'attente est la doublure de toutes les belles choses.",
+  "Une femme pressée achète. Une femme libre choisit.",
+  "Le désir qu'on apprivoise devient un bijou.",
+  "Il n'y a pas de raccourci vers le Faubourg.",
+];
+
+// Messages de célébration variables
+const CELEBRATIONS = [
+  "Magnifique geste.",
+  "Un point de plus sur le cuir.",
+  "Ton futur toi te remercie.",
+  "Le Faubourg se rapproche.",
+  "Quelle allure.",
+  "La patience te va si bien.",
+  "Encore une victoire scellée.",
+  "Tu viens d'acheter du futur.",
+  "Discrète. Constante. Redoutable.",
+  "C'est exactement ça, le luxe.",
+];
+
+// Niveaux symboliques liés à l'avancement Birkin
+const NIVEAUX = [
+  { seuil:0,   nom:"Le Fil" },
+  { seuil:10,  nom:"Le Point Sellier" },
+  { seuil:25,  nom:"Le Cuir Choisi" },
+  { seuil:50,  nom:"L'Atelier" },
+  { seuil:75,  nom:"La Vitrine" },
+  { seuil:100, nom:"Le Faubourg" },
+];
+
+// Badges — condition évaluée à chaque mise à jour
+const BADGES = [
+  { id:"premier-fil",  icone:"✦",  nom:"Premier Fil",      cond:s => s.virements.length >= 1 },
+  { id:"cap-100",      icone:"❖",  nom:"Cap des 100 €",    cond:s => total(s) >= 100 },
+  { id:"cap-500",      icone:"✧",  nom:"Cap des 500 €",    cond:s => total(s) >= 500 },
+  { id:"millesime",    icone:"⟡",  nom:"Millésime 1 000 €",cond:s => total(s) >= 1000 },
+  { id:"rituel-7",     icone:"☽",  nom:"Rituel · 7 jours", cond:s => s.streak.record >= 7 },
+  { id:"constance-30", icone:"☾",  nom:"Constance · 30 j", cond:s => s.streak.record >= 30 },
+  { id:"dix-gestes",   icone:"✶",  nom:"Dix beaux gestes", cond:s => s.virements.length >= 10 },
+  { id:"quart-chemin", icone:"◈",  nom:"Quart du chemin",  cond:s => pctBirkin(s) >= 25 },
+];
+
+// Date d'ouverture des soldes d'été 2026 (dernier mercredi de juin)
+const DATE_SOLDES = new Date(2026, 5, 24);
+
+/* ---------- 2. STORE ---------- */
+
+const CLE = "lecrin-v1";
+
+const ETAT_DEFAUT = {
+  virements: [],              // { ts, montant, defiId|null }
+  objectifBirkin: 10000,
+  objectifSoldes: 300,
+  streak: { compte:0, record:0, dernierJour:null },
+  actionsFaites: {},          // { "2026-06-09": true }
+  badges: [],                 // ids obtenus
+  semaineDefi: null,          // index de semaine de référence
+  enveloppeMystere: null,     // montant tiré pour le défi mystère
+};
+
+let etat = charger();
+
+function charger(){
+  try{
+    const brut = localStorage.getItem(CLE);
+    if(!brut) return structuredClone(ETAT_DEFAUT);
+    return Object.assign(structuredClone(ETAT_DEFAUT), JSON.parse(brut));
+  }catch(e){
+    return structuredClone(ETAT_DEFAUT);
+  }
+}
+
+function sauver(){
+  try{ localStorage.setItem(CLE, JSON.stringify(etat)); }catch(e){}
+}
+
+/* ---------- 3. UTILITAIRES ---------- */
+
+const $ = id => document.getElementById(id);
+
+function total(s = etat){
+  return s.virements.reduce((acc,v) => acc + v.montant, 0);
+}
+
+function totalSoldes(s = etat){
+  // Tous les virements effectués avant l'ouverture des soldes comptent
+  return s.virements
+    .filter(v => new Date(v.ts) < finDeJournee(DATE_SOLDES))
+    .reduce((acc,v) => acc + v.montant, 0);
+}
+
+function pctBirkin(s = etat){
+  return Math.min(100, (total(s) / s.objectifBirkin) * 100);
+}
+
+function cleJour(d = new Date()){
+  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+}
+
+function finDeJournee(d){
+  const f = new Date(d); f.setHours(23,59,59,999); return f;
+}
+
+function fmt(n){
+  return n.toLocaleString("fr-FR", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
+}
+
+// Index de semaine depuis une époque fixe → rotation des défis
+function indexSemaine(d = new Date()){
+  const epoque = new Date(2026, 0, 5); // un lundi
+  return Math.floor((d - epoque) / (7 * 24 * 3600 * 1000));
+}
+
+function defiCourant(){
+  const idx = indexSemaine();
+  // Tirage déterministe mais non linéaire pour éviter la monotonie
+  const ordre = (idx * 7) % DEFIS.length;
+  return DEFIS[ordre];
+}
+
+function hier(){
+  const d = new Date(); d.setDate(d.getDate()-1); return cleJour(d);
+}
+
+/* ---------- 4. RENDU ---------- */
+
+function rendreEnTete(){
+  const opts = { weekday:"long", day:"numeric", month:"long" };
+  $("dateJour").textContent = new Date().toLocaleDateString("fr-FR", opts);
+
+  const pct = pctBirkin();
+  let niveau = NIVEAUX[0];
+  for(const n of NIVEAUX){ if(pct >= n.seuil) niveau = n; }
+  $("niveau").textContent = "Niveau · " + niveau.nom;
+}
+
+function rendreRituel(){
+  const defi = defiCourant();
+  $("defiNom").textContent = "« " + defi.nom + " »";
+
+  let desc = defi.desc;
+  if(defi.id === "mystere"){
+    // Tirage stable pour la semaine
+    if(etat.semaineDefi !== indexSemaine() || !etat.enveloppeMystere){
+      etat.enveloppeMystere = 10 + Math.floor(Math.random() * 41); // 10–50 €
+    }
+    desc += etat.enveloppeMystere + " €.";
+  }
+  if(etat.semaineDefi !== indexSemaine()){
+    etat.semaineDefi = indexSemaine();
+    sauver();
+  }
+  $("defiDesc").textContent = desc;
+  $("lierDefiNom").textContent = defi.nom;
+
+  // Micro-action du jour (rotation par jour de l'année)
+  const jourAnnee = Math.floor((new Date() - new Date(new Date().getFullYear(),0,0)) / 86400000);
+  $("microTexte").textContent = MICRO_ACTIONS[jourAnnee % MICRO_ACTIONS.length];
+
+  const faite = !!etat.actionsFaites[cleJour()];
+  $("microAction").classList.toggle("fait", faite);
+  $("microAction").setAttribute("aria-checked", faite);
+
+  // Streak
+  $("streakNb").textContent = etat.streak.compte;
+  const msgs = etat.streak.compte === 0
+    ? "Le rituel commence aujourd'hui."
+    : etat.streak.compte < 7
+      ? "La constance s'installe."
+      : etat.streak.compte < 30
+        ? "Une vraie discipline de maison."
+        : "Digne des plus grands ateliers.";
+  $("streakMsg").textContent = msgs;
+}
+
+function rendreSoldes(){
+  const m = totalSoldes();
+  $("soldesMontant").textContent = fmt(m);
+  $("soldesObjectifTxt").textContent = fmt(etat.objectifSoldes);
+
+  const pct = Math.min(100, (m / etat.objectifSoldes) * 100);
+  $("soldesJauge").style.width = pct + "%";
+  $("soldesPct").textContent = Math.round(pct) + " %";
+
+  const auj = new Date(); auj.setHours(0,0,0,0);
+  const diff = Math.ceil((DATE_SOLDES - auj) / 86400000);
+  if(diff > 1){
+    $("soldesJours").textContent = diff;
+    $("soldesJoursTxt").textContent = "jours avant l'ouverture des soldes";
+  }else if(diff === 1){
+    $("soldesJours").textContent = "Demain";
+    $("soldesJoursTxt").textContent = "les soldes ouvrent — et tu arrives préparée.";
+  }else if(diff === 0){
+    $("soldesJours").textContent = "C'est le jour";
+    $("soldesJoursTxt").textContent = "— flâne avec ta cagnotte, choisis en reine.";
+  }else{
+    $("soldesJours").textContent = "✦";
+    $("soldesJoursTxt").textContent = "Les soldes sont ouvertes. Chaque euro ici a été gagné en amont.";
+  }
+}
+
+function rendreBirkin(){
+  const m = total();
+  const pct = pctBirkin();
+  $("birkinMontant").textContent = fmt(m);
+  $("birkinObjectifTxt").textContent = fmt(etat.objectifBirkin);
+  $("birkinPct").textContent = pct < 1 && pct > 0 ? pct.toFixed(1) : Math.round(pct);
+  $("birkinJauge").style.width = pct + "%";
+
+  // Étapes (jalons des niveaux)
+  const cont = $("etapes");
+  cont.innerHTML = "";
+  for(const n of NIVEAUX){
+    const dot = document.createElement("span");
+    dot.className = "etape" + (pct >= n.seuil && n.seuil > 0 ? " atteinte" : (n.seuil === 0 ? " atteinte" : ""));
+    dot.title = n.nom + " · " + n.seuil + " %";
+    cont.appendChild(dot);
+  }
+}
+
+function rendreBadges(){
+  const cont = $("badgesGrille");
+  cont.innerHTML = "";
+  for(const b of BADGES){
+    const ok = etat.badges.includes(b.id);
+    const el = document.createElement("div");
+    el.className = "badge" + (ok ? " obtenu" : "");
+    el.innerHTML = '<div class="badge-rond">' + b.icone + '</div><div class="badge-nom">' + b.nom + '</div>';
+    cont.appendChild(el);
+  }
+}
+
+function rendreHistorique(){
+  const ul = $("timeline");
+  ul.innerHTML = "";
+  const liste = [...etat.virements].sort((a,b) => b.ts - a.ts).slice(0, 30);
+
+  $("histVide").style.display = liste.length ? "none" : "block";
+  $("histResume").textContent = liste.length
+    ? etat.virements.length + " virement(s) — " + fmt(total()) + " € mis à l'abri."
+    : "";
+
+  for(const v of liste){
+    const li = document.createElement("li");
+    const d = new Date(v.ts);
+    const defi = DEFIS.find(x => x.id === v.defiId);
+    li.innerHTML =
+      '<div class="tl-montant">+' + fmt(v.montant) + '<small> €</small></div>' +
+      '<div class="tl-meta">' + d.toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" }) + '</div>' +
+      (defi ? '<span class="tl-defi">' + defi.nom + '</span>' : '');
+    ul.appendChild(li);
+  }
+}
+
+function rendreCitation(){
+  const jour = Math.floor(Date.now() / 86400000);
+  $("citation").textContent = CITATIONS[jour % CITATIONS.length];
+}
+
+function rendreTout(){
+  rendreEnTete();
+  rendreRituel();
+  rendreSoldes();
+  rendreBirkin();
+  rendreBadges();
+  rendreHistorique();
+  rendreCitation();
+}
+
+/* ---------- 5. INTERACTIONS ---------- */
+
+// --- Streak / micro-action quotidienne ---
+function basculerMicroAction(){
+  const cle = cleJour();
+  if(etat.actionsFaites[cle]) return; // une fois cochée, la victoire reste acquise
+
+  etat.actionsFaites[cle] = true;
+
+  // Mise à jour de la série
+  if(etat.streak.dernierJour === hier()){
+    etat.streak.compte += 1;
+  }else if(etat.streak.dernierJour !== cle){
+    etat.streak.compte = 1;
+  }
+  etat.streak.dernierJour = cle;
+  etat.streak.record = Math.max(etat.streak.record, etat.streak.compte);
+
+  sauver();
+  verifierBadges();
+  rendreRituel();
+}
+
+// Au chargement : si un jour a été manqué, la série repart sereinement
+function reconcilierStreak(){
+  const d = etat.streak.dernierJour;
+  if(d && d !== cleJour() && d !== hier()){
+    etat.streak.compte = 0;
+    sauver();
+  }
+}
+
+// --- Feuilles modales ---
+function ouvrirFeuille(id){
+  $("voile").classList.add("ouvert");
+  $(id).classList.add("ouvert");
+}
+function fermerFeuilles(){
+  $("voile").classList.remove("ouvert");
+  document.querySelectorAll(".feuille").forEach(f => f.classList.remove("ouvert"));
+}
+
+// --- Virement ---
+function validerVirement(){
+  const brut = parseFloat($("inputMontant").value.replace(",", "."));
+  const note = $("noteMin");
+
+  if(isNaN(brut) || brut < 10){
+    note.textContent = "Le Livret A demande 10 € minimum — tout près du but.";
+    note.classList.add("alerte");
+    return;
+  }
+  note.textContent = "Minimum 10 € — la règle du Livret A";
+  note.classList.remove("alerte");
+
+  const montant = Math.round(brut * 100) / 100;
+  const lier = $("lierDefi").classList.contains("actif");
+
+  etat.virements.push({
+    ts: Date.now(),
+    montant,
+    defiId: lier ? defiCourant().id : null,
+  });
+  sauver();
+
+  fermerFeuilles();
+  $("inputMontant").value = "";
+
+  const nouveaux = verifierBadges();
+  rendreTout();
+  lancerCelebration(montant, nouveaux);
+}
+
+// --- Badges ---
+function verifierBadges(){
+  const nouveaux = [];
+  for(const b of BADGES){
+    if(!etat.badges.includes(b.id) && b.cond(etat)){
+      etat.badges.push(b.id);
+      nouveaux.push(b);
+    }
+  }
+  if(nouveaux.length) sauver();
+  return nouveaux;
+}
+
+function montrerToast(html){
+  const t = $("toast");
+  t.innerHTML = html;
+  t.classList.add("visible");
+  setTimeout(() => t.classList.remove("visible"), 3200);
+}
+
+// --- Objectifs modifiables ---
+function validerObjectifBirkin(){
+  const v = parseFloat($("inputObjectif").value);
+  if(!isNaN(v) && v >= 100){
+    etat.objectifBirkin = Math.round(v);
+    sauver(); rendreTout();
+  }
+  fermerFeuilles();
+}
+function validerObjectifSoldes(){
+  const v = parseFloat($("inputObjSoldes").value);
+  if(!isNaN(v) && v >= 10){
+    etat.objectifSoldes = Math.round(v);
+    sauver(); rendreTout();
+  }
+  fermerFeuilles();
+}
+
+/* ---------- 6. CÉLÉBRATION — particules dorées ---------- */
+
+const canvas = $("canvasOr");
+const ctx = canvas.getContext("2d");
+let particules = [];
+let animation = null;
+const mouvementReduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function dimensionnerCanvas(){
+  canvas.width = window.innerWidth * devicePixelRatio;
+  canvas.height = window.innerHeight * devicePixelRatio;
+  ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+}
+
+function creerParticules(){
+  particules = [];
+  const n = 90;
+  const ORS = ["#D9BC82", "#B6924E", "#E9D7B7", "#F4E6C8", "#C8A45C"];
+  for(let i = 0; i < n; i++){
+    particules.push({
+      x: Math.random() * window.innerWidth,
+      y: -20 - Math.random() * window.innerHeight * .6,
+      r: 1.5 + Math.random() * 3.2,
+      vy: 1 + Math.random() * 2.2,
+      vx: (Math.random() - .5) * .8,
+      o: .5 + Math.random() * .5,
+      scint: Math.random() * Math.PI * 2,   // phase de scintillement
+      forme: Math.random() < .25 ? "losange" : "rond",
+      teinte: ORS[Math.floor(Math.random() * ORS.length)],
+    });
+  }
+}
+
+function dessiner(){
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  let vivantes = false;
+
+  for(const p of particules){
+    p.y += p.vy;
+    p.x += p.vx + Math.sin(p.y * .02) * .4;
+    p.scint += .12;
+    if(p.y < window.innerHeight + 20) vivantes = true;
+
+    const alpha = p.o * (0.55 + 0.45 * Math.sin(p.scint));
+    ctx.globalAlpha = Math.max(0, alpha);
+    ctx.fillStyle = p.teinte;
+
+    if(p.forme === "losange"){
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.scint * .5);
+      ctx.fillRect(-p.r, -p.r * .4, p.r * 2, p.r * .8);
+      ctx.restore();
+    }else{
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  if(vivantes && $("celebration").classList.contains("actif")){
+    animation = requestAnimationFrame(dessiner);
+  }
+}
+
+function lancerCelebration(montant, nouveauxBadges){
+  $("celebMontant").textContent = fmt(montant);
+  $("celebMsg").textContent = CELEBRATIONS[Math.floor(Math.random() * CELEBRATIONS.length)];
+
+  const reste = Math.max(0, etat.objectifBirkin - total());
+  $("celebDetail").textContent = reste > 0
+    ? fmt(total()) + " € au total — plus que " + fmt(reste) + " € avant le Birkin."
+    : "Objectif atteint. Le Faubourg t'attend.";
+
+  $("celebration").classList.add("actif");
+
+  if(!mouvementReduit){
+    dimensionnerCanvas();
+    creerParticules();
+    cancelAnimationFrame(animation);
+    dessiner();
+  }
+
+  // Vibration discrète si supportée
+  if(navigator.vibrate) navigator.vibrate([18, 40, 18]);
+
+  // Badges obtenus → toast après la célébration
+  if(nouveauxBadges && nouveauxBadges.length){
+    setTimeout(() => {
+      montrerToast(nouveauxBadges[0].icone + " Distinction obtenue · <em>" + nouveauxBadges[0].nom + "</em>");
+    }, 1200);
+  }
+}
+
+function fermerCelebration(){
+  $("celebration").classList.remove("actif");
+  cancelAnimationFrame(animation);
+  setTimeout(() => ctx.clearRect(0, 0, window.innerWidth, window.innerHeight), 400);
+}
+
+/* ---------- 7. INITIALISATION ---------- */
+
+function initEvenements(){
+  // Médaillon → feuille de virement
+  $("btnMedaillon").addEventListener("click", () => {
+    ouvrirFeuille("feuilleVirement");
+    setTimeout(() => $("inputMontant").focus(), 450);
+  });
+
+  // Puces de montant rapide
+  document.querySelectorAll(".puce").forEach(p => {
+    p.addEventListener("click", () => { $("inputMontant").value = p.dataset.montant; });
+  });
+
+  // Interrupteur « rattacher au défi »
+  $("lierDefi").addEventListener("click", () => $("lierDefi").classList.toggle("actif"));
+
+  // Validation / annulation virement
+  $("btnValider").addEventListener("click", validerVirement);
+  $("btnAnnuler").addEventListener("click", fermerFeuilles);
+  $("inputMontant").addEventListener("keydown", e => { if(e.key === "Enter") validerVirement(); });
+
+  // Objectif Birkin
+  $("btnObjBirkin").addEventListener("click", () => {
+    $("inputObjectif").value = etat.objectifBirkin;
+    ouvrirFeuille("feuilleObjectif");
+  });
+  $("btnValiderObjectif").addEventListener("click", validerObjectifBirkin);
+  $("btnAnnulerObjectif").addEventListener("click", fermerFeuilles);
+
+  // Objectif soldes
+  $("btnObjSoldes").addEventListener("click", () => {
+    $("inputObjSoldes").value = etat.objectifSoldes;
+    ouvrirFeuille("feuilleSoldes");
+  });
+  $("btnValiderObjSoldes").addEventListener("click", validerObjectifSoldes);
+  $("btnAnnulerObjSoldes").addEventListener("click", fermerFeuilles);
+
+  // Voile
+  $("voile").addEventListener("click", fermerFeuilles);
+
+  // Micro-action quotidienne
+  $("microAction").addEventListener("click", basculerMicroAction);
+  $("microAction").addEventListener("keydown", e => {
+    if(e.key === " " || e.key === "Enter"){ e.preventDefault(); basculerMicroAction(); }
+  });
+
+  // Célébration
+  $("btnFermerCeleb").addEventListener("click", fermerCelebration);
+
+  window.addEventListener("resize", () => {
+    if($("celebration").classList.contains("actif")) dimensionnerCanvas();
+  });
+}
+
+reconcilierStreak();
+initEvenements();
+rendreTout();
+</script>
+</body>
+</html>

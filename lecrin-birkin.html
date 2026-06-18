@@ -1584,10 +1584,9 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
 .barre-sticky-fill::after{content:"";position:absolute;right:-2px;top:-2px;bottom:-2px;width:7px;border-radius:50%;background:var(--or-vif);box-shadow:0 0 10px var(--or),0 0 20px rgba(182,146,78,.5)}
 
 /* ── V9.2 MESSAGE DU MATIN ── */
-.matin-ecran{position:fixed;inset:0;z-index:200;background:rgba(53,44,30,.68);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s ease;padding:20px}
-.matin-ecran.actif{opacity:1;pointer-events:auto}
-.matin-carte{background:var(--ivoire-haut);border-radius:28px;padding:36px 28px 28px;max-width:360px;width:100%;box-shadow:var(--ombre-profonde);border:var(--bord-fort);text-align:center;transform:translateY(22px) scale(.95);transition:transform .52s cubic-bezier(.22,1,.36,1)}
-.matin-ecran.actif .matin-carte{transform:none}
+.matin-ecran{position:fixed;inset:0;z-index:200;background:rgba(53,44,30,.68);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px}
+.matin-ecran.actif{display:flex}
+.matin-carte{background:var(--ivoire-haut);border-radius:28px;padding:36px 28px 28px;max-width:360px;width:100%;box-shadow:var(--ombre-profonde);border:var(--bord-fort);text-align:center}
 .matin-glyph{font-size:2.6rem;display:block;margin-bottom:10px;animation:matinG 2s ease-in-out infinite}
 @keyframes matinG{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.1) rotate(2deg)}}
 .matin-salut{font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:8px}
@@ -4350,8 +4349,8 @@ function rendreBarreSticky(){
 
 /* V9.2 — Message du Matin */
 function verifierMessageMatin(){
-  if(etat.matinVu===cleJour()||!etat.onboardingFait) return;
-  setTimeout(ouvrirMessageMatin,750);
+  if(etat.matinVu===cleJour()||!etat.onboardingFait||etat.virements.length<1) return;
+  setTimeout(ouvrirMessageMatin, 800);
 }
 function ouvrirMessageMatin(){
   const pct=pctBirkin(), s=etat.streak.compte;
@@ -4360,14 +4359,18 @@ function ouvrirMessageMatin(){
   $("matinGlyph").textContent=m.g;
   $("matinTitre").textContent=m.t;
   $("matinCorps").textContent=m.c(pct,s,jours[new Date().getDay()]);
-  $("matinSalut").textContent="Bonjour, "+(etat.profil&&etat.profil.devise?"Artisane":"Artisane");
+  $("matinSalut").textContent="Bonjour, Artisane";
   $("matinStats").innerHTML=
     `<div class="matin-stat-b"><span class="matin-stat-n">${Math.round(pct)}%</span><span class="matin-stat-l">de ton Birkin</span></div>`+
     `<div class="matin-stat-b"><span class="matin-stat-n">${s}</span><span class="matin-stat-l">jours de fil</span></div>`;
+  /* Handler direct sur le bouton — garanti même si initEvenements a déjà tourné */
+  const btn=$("btnMatinFermer");
+  if(btn){ btn.onclick=null; btn.onclick=fermerMessageMatin; }
   $("matinEcran").classList.add("actif");
 }
 function fermerMessageMatin(){
-  $("matinEcran").classList.remove("actif");
+  const ecran=$("matinEcran");
+  if(ecran) ecran.classList.remove("actif");
   etat.matinVu=cleJour(); sauver();
 }
 

@@ -1573,9 +1573,130 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
 .notif-setup-arrow{color:var(--or);font-size:1.1rem;font-family:var(--serif)}
 .notif-setup.fait{opacity:.5;cursor:default;pointer-events:none}
 .notif-setup.fait .notif-setup-ico::after{content:"✓";font-size:1rem}
+
+/* ============================================================
+   V9 — DIX AMÉLIORATIONS PSYCHOLOGIQUES / UX / GAMIFICATION
+   ============================================================ */
+
+/* ── V9.1 BARRE DE PROGRESSION STICKY ── */
+.barre-sticky{position:fixed;top:0;left:0;right:0;z-index:120;height:3px;background:rgba(182,146,78,.12);pointer-events:none}
+.barre-sticky-fill{height:100%;background:linear-gradient(90deg,var(--or-clair),var(--or),var(--or-vif));transition:width 1.2s cubic-bezier(.22,1,.36,1);position:relative;min-width:.4%}
+.barre-sticky-fill::after{content:"";position:absolute;right:-2px;top:-2px;bottom:-2px;width:7px;border-radius:50%;background:var(--or-vif);box-shadow:0 0 10px var(--or),0 0 20px rgba(182,146,78,.5)}
+
+/* ── V9.2 MESSAGE DU MATIN ── */
+.matin-ecran{position:fixed;inset:0;z-index:200;background:rgba(53,44,30,.68);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s ease;padding:20px}
+.matin-ecran.actif{opacity:1;pointer-events:auto}
+.matin-carte{background:var(--ivoire-haut);border-radius:28px;padding:36px 28px 28px;max-width:360px;width:100%;box-shadow:var(--ombre-profonde);border:var(--bord-fort);text-align:center;transform:translateY(22px) scale(.95);transition:transform .52s cubic-bezier(.22,1,.36,1)}
+.matin-ecran.actif .matin-carte{transform:none}
+.matin-glyph{font-size:2.6rem;display:block;margin-bottom:10px;animation:matinG 2s ease-in-out infinite}
+@keyframes matinG{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.1) rotate(2deg)}}
+.matin-salut{font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:8px}
+.matin-titre{font-family:var(--serif);font-style:italic;font-size:1.42rem;font-weight:300;color:var(--taupe-fonce);line-height:1.3;margin-bottom:14px}
+.matin-corps{font-size:.88rem;color:var(--taupe);line-height:1.65;margin-bottom:20px}
+.matin-stats{display:flex;gap:10px;justify-content:center;margin-bottom:22px}
+.matin-stat-b{background:var(--ivoire);border-radius:14px;padding:10px 18px;border:var(--bord);flex:1}
+.matin-stat-n{font-family:var(--serif);font-size:1.32rem;font-weight:300;color:var(--or);display:block;line-height:1}
+.matin-stat-l{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);margin-top:3px;display:block}
+.matin-btn{width:100%;padding:14px;border:none;background:linear-gradient(135deg,var(--or-clair),var(--or));color:#fff;border-radius:14px;font-family:var(--serif);font-style:italic;font-size:1rem;cursor:pointer;transition:all .3s cubic-bezier(.22,1,.36,1);letter-spacing:.02em}
+.matin-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px -8px rgba(182,146,78,.55)}
+.matin-btn:active{transform:scale(.97)}
+
+/* ── V9.3 GRAPHIQUE TIMELINE ── */
+.graph-zone{position:relative;height:80px;margin:0 -4px 6px;overflow:visible}
+.graph-svg{width:100%;height:80px;overflow:visible}
+.graph-line{fill:none;stroke:var(--or);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.graph-area{fill:url(#graphGrad);opacity:.25}
+.graph-point{fill:var(--or);cursor:pointer;transition:r .18s}
+.graph-tooltip{position:absolute;background:var(--encre);color:var(--or-clair);font-size:.68rem;padding:5px 10px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity .18s;white-space:nowrap;transform:translate(-50%,-120%);z-index:10}
+.graph-zero{font-size:.8rem;color:var(--taupe);opacity:.6;text-align:center;padding:22px 0;font-family:var(--serif);font-style:italic}
+
+/* ── V9.4 FLAMME DE CONSTANCE ── */
+.flamme-zone{display:flex;align-items:flex-end;gap:12px;padding:10px 0}
+.flamme-svg{flex-shrink:0;filter:drop-shadow(0 2px 10px rgba(230,120,30,.4));animation:flammeF 2.4s ease-in-out infinite}
+@keyframes flammeF{0%,100%{transform:scaleX(1) skewX(0)}25%{transform:scaleX(.95) skewX(-2deg)}50%{transform:scaleX(1.05) skewX(1.5deg)}75%{transform:scaleX(.97) skewX(-1deg)}}
+.flamme-info{flex:1}
+.flamme-nb{font-family:var(--serif);font-size:1.7rem;font-weight:300;color:var(--encre);line-height:1}
+.flamme-nb em{color:var(--or);font-style:normal}
+.flamme-lab{font-size:.72rem;color:var(--taupe);letter-spacing:.06em;margin-top:2px}
+.flamme-rec{font-size:.67rem;color:var(--taupe);opacity:.7;margin-top:6px;display:flex;align-items:center;gap:5px}
+.flamme-rec span{background:var(--or-pale);color:var(--or);padding:2px 8px;border-radius:999px;font-size:.63rem}
+
+/* ── V9.5 CALCULATRICE ANTI-ACHAT ── */
+.calc-anti{background:linear-gradient(135deg,rgba(199,107,126,.05),rgba(182,146,78,.05));border:1px solid rgba(182,146,78,.2);border-radius:16px;padding:16px 18px;margin-top:14px}
+.calc-anti-label{font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:10px}
+.calc-anti-row{display:flex;gap:10px;align-items:center}
+.calc-anti-input{flex:1;border:var(--bord-fort);border-radius:12px;padding:10px 14px;background:var(--blanc);color:var(--encre);font-family:var(--serif);font-size:1.05rem;font-style:italic;outline:none;transition:border .3s;-moz-appearance:textfield}
+.calc-anti-input::-webkit-outer-spin-button,.calc-anti-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.calc-anti-input:focus{border-color:var(--or)}
+.calc-anti-eur{color:var(--taupe);font-size:.9rem;flex-shrink:0}
+.calc-anti-res{margin-top:12px;display:none;gap:10px}
+.calc-anti-res.v{display:flex}
+.calc-anti-bloc{flex:1;background:var(--ivoire);border-radius:12px;padding:10px 12px;text-align:center;border:var(--bord)}
+.calc-anti-num{font-family:var(--serif);font-size:1.12rem;color:var(--soie);font-weight:300;display:block}
+.calc-anti-lab{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--taupe);opacity:.7}
+
+/* ── V9.6 CÉRÉMONIE PALIER HERMÈS ── */
+.cermo-ecran{position:fixed;inset:0;z-index:185;background:linear-gradient(160deg,#080604 0%,#160D05 50%,#0A0703 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .8s ease;text-align:center;padding:40px 28px;overflow:hidden}
+.cermo-ecran.actif{opacity:1;pointer-events:auto}
+.cermo-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cermo-glyph{font-size:3.8rem;margin-bottom:18px;animation:cermoG 3s ease-in-out infinite;filter:drop-shadow(0 0 24px rgba(220,190,130,.65))}
+@keyframes cermoG{0%,100%{transform:scale(1);filter:drop-shadow(0 0 20px rgba(220,190,130,.4))}50%{transform:scale(1.1);filter:drop-shadow(0 0 45px rgba(220,190,130,.95))}}
+.cermo-eyebrow{font-size:.62rem;letter-spacing:.36em;text-transform:uppercase;color:rgba(220,190,130,.5);margin-bottom:8px}
+.cermo-titre{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,5vw,2.5rem);font-weight:200;color:#DCBE82;line-height:1.2;margin-bottom:10px}
+.cermo-sous{font-size:.88rem;color:rgba(220,190,130,.6);margin-bottom:28px;line-height:1.6;max-width:300px}
+.cermo-poeme{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,247,230,.72);line-height:1.8;margin-bottom:36px;max-width:340px;white-space:pre-line}
+.cermo-btn{padding:14px 38px;border:1px solid rgba(220,190,130,.38);background:transparent;color:#DCBE82;border-radius:999px;font-family:var(--serif);font-style:italic;font-size:1rem;cursor:pointer;transition:all .4s cubic-bezier(.22,1,.36,1);letter-spacing:.04em}
+.cermo-btn:hover{background:rgba(220,190,130,.1);border-color:rgba(220,190,130,.75);box-shadow:0 0 32px rgba(220,190,130,.14)}
+
+/* ── V9.7 HORIZON ANIMÉ (Compte à rebours) ── */
+.horizon-a-compte{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.horizon-a-unite{flex:1;min-width:58px;text-align:center;background:var(--ivoire);border-radius:14px;padding:12px 8px;border:var(--bord)}
+.horizon-a-chiffre{font-family:var(--serif);font-size:1.75rem;font-weight:300;color:var(--or);display:block;line-height:1;transition:opacity .3s}
+.horizon-a-lab{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);opacity:.7;margin-top:4px}
+.horizon-a-phrase{font-family:var(--serif);font-style:italic;font-size:.87rem;color:var(--taupe);margin-top:12px;line-height:1.6}
+.horizon-a-rythme{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:.74rem;color:var(--taupe)}
+.horizon-a-dot{width:6px;height:6px;border-radius:50%;background:var(--or);flex-shrink:0;animation:dotPulse 1.8s ease-in-out infinite}
+
+/* ── V9.8 RÉSUMÉ HEBDOMADAIRE (Digest lundi) ── */
+.digest-wrap{background:linear-gradient(135deg,rgba(182,146,78,.08),rgba(182,146,78,.02));border:1px solid rgba(182,146,78,.24);border-radius:18px;padding:20px 22px}
+.digest-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.digest-titre{font-family:var(--serif);font-style:italic;font-size:1.04rem;color:var(--taupe-fonce)}
+.digest-close{border:none;background:none;color:var(--taupe);cursor:pointer;font-size:.78rem;opacity:.6;padding:4px;line-height:1}
+.digest-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.digest-sb{background:var(--ivoire);border-radius:12px;padding:12px 14px;border:var(--bord)}
+.digest-sb-n{font-family:var(--serif);font-size:1.18rem;font-weight:300;color:var(--or);display:block}
+.digest-sb-n.pos::before{content:"91 a0";color:#5E9E6B}
+.digest-sb-n.neg::before{content:"93 a0";color:var(--soie)}
+.digest-sb-l{font-size:.62rem;color:var(--taupe);opacity:.7;text-transform:uppercase;letter-spacing:.1em}
+.digest-msg{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--taupe-fonce);line-height:1.6}
+
+/* ── V9.9 DÉFI ÉCLAIR ── */
+.flash-zone{border:2px dashed rgba(199,107,126,.35);border-radius:18px;padding:18px 20px;position:relative;background:linear-gradient(135deg,rgba(199,107,126,.04),transparent);transition:border-color .3s,background .3s}
+.flash-zone.fait{border-color:rgba(182,146,78,.38);background:linear-gradient(135deg,rgba(182,146,78,.06),transparent)}
+.flash-badge{position:absolute;top:-10px;left:18px;background:var(--soie);color:#fff;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:3px 12px;border-radius:999px}
+.flash-zone.fait .flash-badge{background:var(--or)}
+.flash-nom{font-family:var(--serif);font-style:italic;font-size:1.04rem;color:var(--taupe-fonce);margin:10px 0 6px}
+.flash-desc{font-size:.82rem;color:var(--taupe);line-height:1.55;margin-bottom:12px}
+.flash-timer{font-size:.7rem;color:var(--soie);letter-spacing:.06em;margin-bottom:10px}
+.flash-zone.fait .flash-timer{color:var(--or)}
+.flash-btn{padding:10px 22px;border:none;border-radius:12px;background:var(--soie);color:#fff;font-family:var(--serif);font-style:italic;font-size:.9rem;cursor:pointer;transition:all .3s cubic-bezier(.22,1,.36,1)}
+.flash-zone.fait .flash-btn{background:linear-gradient(135deg,var(--or-clair),var(--or));cursor:default}
+.flash-btn:not(:disabled):hover{transform:translateY(-2px);opacity:.9}
+
+/* ── V9.10 NIVEAU ENRICHI ── */
+.niv-enrichi{background:linear-gradient(135deg,var(--ivoire),var(--parchemin));border-radius:18px;padding:20px 22px;margin-top:14px;border:var(--bord)}
+.niv-enrichi-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:10px}
+.niv-nom-g{font-family:var(--serif);font-size:1.18rem;font-weight:300;color:var(--taupe-fonce)}
+.niv-suiv{font-family:var(--serif);font-size:.86rem;color:var(--taupe);text-align:right}
+.niv-xp-bar{height:5px;background:var(--sable-fonce);border-radius:999px;overflow:hidden;margin-bottom:8px}
+.niv-xp-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--or-clair),var(--or));transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+.niv-labels{display:flex;justify-content:space-between;font-size:.67rem;color:var(--taupe);opacity:.7;margin-bottom:10px}
+.niv-identite{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--taupe-fonce);padding-top:10px;border-top:var(--bord);line-height:1.55;opacity:.85}
+
 </style>
 </head>
 <body>
+<div class="barre-sticky"><div class="barre-sticky-fill" id="barreSticky" style="width:0%"></div></div>
 <div class="aura"></div>
 <div class="grain"></div>
 <div class="velours"></div>
@@ -1603,6 +1724,9 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
   <div class="grille">
 
     <!-- Bannière saison — pleine largeur -->
+        <!-- V9.8 — Résumé hebdomadaire -->
+    <div id="digestZone" class="col-trois"></div>
+
     <section class="saison col-trois" id="saison">
       <div class="saison-fond" id="saisonFond"></div>
       <div class="saison-lumiere"></div>
@@ -1631,12 +1755,15 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
         <p class="sac-etat" id="sacEtat"></p>
         <p class="patine-mini" id="patineMini"></p>
         <p class="sac-oracle" id="oracle"></p>
+        <div id="horizonAnimeZone"></div>
         <div class="horizon" id="horizon"></div>
         <div class="pierres-zone">
           <div class="pierres-titre">Les Pierres Blanches</div>
           <div class="pierres" id="pierres" role="list" aria-label="Jalons financiers"></div>
         </div>
         <div class="paliers" id="paliers"></div>
+        <div id="calcAchatZone"></div>
+        <div id="niveauEnrichiZone"></div>
       </section>
     </div>
 
@@ -1653,6 +1780,15 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
     <section class="carte defi-jour" id="defiJour"></section>
 
     <section class="carte hero-defi" id="heroDefi"></section>
+    <!-- V9.9 — Défi Éclair -->
+    <section class="carte" data-section="atelier" id="flashSection">
+      <div class="eyebrow">Défi surprise</div>
+      <h2>Le Défi Éclair</h2>
+      <p class="sous-titre">Un défi secret, valable aujourd'hui seulement.</p>
+      <div id="flashZone"></div>
+    </section>
+
+
 
     <!-- COLONNE DROITE : carte hebdo + rituel + conseil + lettres + succès + historique -->
     <section class="carte">
@@ -1686,6 +1822,7 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
         <span><b id="streakNb">0</b>jour(s) de constance</span>
         <span id="streakMsg">Le rituel commence aujourd'hui.</span>
       </div>
+      <div id="flammeZone"></div>
     </section>
 
     <section class="carte">
@@ -1719,6 +1856,7 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
       <div class="eyebrow">Mémoire des victoires</div>
       <h2>Tes plus beaux gestes</h2>
       <p class="sous-titre" id="histResume"></p>
+            <div id="graphZone"></div>
       <ul class="timeline" id="timeline"></ul>
       <p class="vide" id="histVide">La première page de ton histoire s'écrit avec le médaillon, plus haut.</p>
     </section>
@@ -2398,6 +2536,9 @@ const ETAT_DEFAUT = {
   rechuteJournal: [],     /* [{ts, mood, texte}] — journal de rechutes */
   notifActivees: false,   /* push notifications activées */
   objectifSemaine: 50,    /* objectif hebdomadaire en € */
+  matinVu: null,          /* "YYYY-MM-DD" du dernier message du matin vu */
+  flashFait: null,        /* "YYYY-MM-DD" du dernier défi éclair validé */
+  digestVu: null,         /* "YYYY-MM-DD" du dernier digest hebdo fermé */
   /* V7.1 — La Trame des Jours */
   patine: 0,                  /* jours uniques de rituel validés, monotone */
   patineCelebreeMax: 0,       /* dernier seuil patine célébré */
@@ -3099,6 +3240,10 @@ function rendreTout(){
   rendreRituel(); rendreConseil(); rendreLettres();
   rendreSucces(); rendreHistorique(); rendreCitation();
   rendrePremieres(); rendreOracleV8();
+  /* V9 */
+  rendreBarreSticky(); rendreFlamme(); rendreGraphTimeline();
+  rendreCalcAnti(); rendreHorizonAnime(); rendreDigest();
+  rendreFlashDefi(); rendreNiveauEnrichi();
 }
 
 /* ============================================================ INTERACTIONS ============================================================ */
@@ -3259,6 +3404,8 @@ function validerVirement(){
   rendreTout();
   const niveauApres = niveauCourant().nom;
   anticiperPuisCelebrer(montant, nouveaux, niveauAvant !== niveauApres ? niveauApres : null, pctAvant, pctBirkin());
+  /* V9.6 — cérémonie Hermès si palier franchi */
+  verifierCeremonie(total() - montant, total());
   /* Pierre Blanche franchie → toast poétique, après la séquence du sellier */
   if(pierreFranchie){
     setTimeout(() => montrerToast("✦ <em>" + pierreFranchie.nom + "</em> — " + pierreFranchie.sous), 1800);
@@ -4153,6 +4300,305 @@ function planifierNotificationLocale(){
   }
 }
 
+/* ============================================================
+   V9 — DONNÉES & FONCTIONS
+   ============================================================ */
+
+const NIVEAUX_ENRICHIS = [
+  { identite:"Tu poses le premier fil.", quote:"Le plus grand voyage commence par un pas." },
+  { identite:"Tu maîtrises le point sellier.", quote:"L’aiguille du sellier ne tremble jamais." },
+  { identite:"Tu choisis le cuir avec discernement.", quote:"Seul le cuir choisi avec patience garde sa beauté." },
+  { identite:"Tu es à l’atelier — vraiment.", quote:"L’atelier, c’est là où la patience devient peau." },
+  { identite:"Tu es dans la vitrine du Faubourg.", quote:"La vitrine, c’est la dernière étape avant la consécration." },
+  { identite:"Tu es au Faubourg. Tu l’as mérité.", quote:"Certains achètent. Toi, tu as construit." },
+];
+
+const PALIER_POEMES = {
+  twilly:   "Un souffle de soie entre tes doigts,\nun fil de Lyon tissé pour toi.\nLe Twilly n’est pas un accessoire —\nc’est le premier chapitre de ton histoire.",
+  calvi:    "Le cuir du Calvi a le grain d’un secret.\nIl tient ce que tu portes de plus précieux.\nTa carte y entre, et quelque chose change —\ntu deviens la femme qui sait attendre.",
+  carre:    "Quatre-vingt-dix centimètres de Lyonnais.\nCent quarante-quatre paysages possibles.\nUn carré sur tes épaules, et tu portes\nle monde entier avec l’élégance d’une seule femme.",
+  bracelet: "L’émail du Faubourg au poignet.\nChaque couleur est une saison de toi.\nTu le regarderas partir,\net tu comprendras que tu t’en approches.",
+};
+
+const FLASH_DEFIS = [
+  { id:"fh", nom:"L’heure exacte", desc:"Vire exactement le nombre d’heures qu’il est en ce moment, en euros.", sugg:()=>Math.max(10,new Date().getHours()) },
+  { id:"fb", nom:"Le meilleur écho", desc:"Vire autant que ton plus beau virement de cette semaine.", sugg:()=>{ const v=etat.virements.filter(v=>v.ts>=lundiSemaine()); return v.length?Math.max(...v.map(x=>x.montant)):10; } },
+  { id:"fp", nom:"La page blanche", desc:"Ferme toutes tes apps shopping. 5 € par app fermée.", sugg:()=>15 },
+  { id:"fm", nom:"Le miroir parfait", desc:"Pense à la dernière envie non cédée. Vire exactement son prix imaginé.", sugg:()=>20 },
+  { id:"fd", nom:"Le dixième hebdo", desc:"Vire 10 % de ton objectif hebdomadaire, tout de suite.", sugg:()=>Math.max(10,Math.ceil((etat.objectifSemaine||50)*.1)) },
+  { id:"fr", nom:"La résistance d’or", desc:"Tu n’as pas cédé aujourd’hui. Récompense-toi.", sugg:()=>10 },
+  { id:"ff", nom:"Le fil retrouvé", desc:"Reviens à ton premier virement. Même montant — pour symboliser le chemin.", sugg:()=>etat.virements.length?etat.virements[0].montant:10 },
+];
+
+const MATIN_MSGS = [
+  { g:"🌅", t:"Une nouvelle page s’ouvre", c:(p,s,j)=>`${j}, ton Birkin t’attend. ${s>0?s+" jours consécutifs d’atelier — ne brise pas ce fil.":"C’est un nouveau départ — chaque geste compte."}` },
+  { g:"✦",  t:"Le sellier est à l’atelier", c:(p,s,j)=>`À ${Math.round(p)}% de ton Birkin. Chaque virement d’aujourd’hui te rapproche d’une façon que tu ne peux pas encore voir.` },
+  { g:"🪡", t:"Le fil de cette journée", c:(p,s,j)=>`${s>7?"Ta constance est remarquable.":"La constance se construit jour après jour."} Aujourd’hui, une seule chose : scelle un geste.` },
+  { g:"🌸", t:"Ce matin au Faubourg", c:(p,s,j)=>`Ils ouvrent les portes du 24 Faubourg Saint-Honoré. Toi, tu ouvres L’Écrin. C’est la même énergie.` },
+  { g:"⚜",  t:"La discipline du luxe", c:(p,s,j)=>`Le luxe ne s’achète pas. Il se mérite. Et toi, tu le mérites ${fmt(p/100*etat.objectifBirkin)} € à la fois.` },
+  { g:"🕯",  t:"Avant même de commencer", c:(p,s,j)=>`La nuit a passé. Ton épargne aussi — elle a dormi et grandi. ${Math.round(p)}% atteint, et la journée n’a pas encore commencé.` },
+  { g:"💫", t:"Ce que tu construis", c:(p,s,j)=>`Tu ne construis pas juste un sac. Tu construis une version de toi qui sait attendre, choisir, et célébrer avec mérite.` },
+];
+
+function lundiSemaine(){ const d=new Date();d.setHours(0,0,0,0);const j=d.getDay()||7;d.setDate(d.getDate()-j+1);return d.getTime(); }
+
+/* V9.1 — Barre sticky */
+function rendreBarreSticky(){
+  const fill=$("barreSticky");
+  if(fill) fill.style.width=Math.max(.5,pctBirkin())+"%";
+}
+
+/* V9.2 — Message du Matin */
+function verifierMessageMatin(){
+  if(etat.matinVu===cleJour()||!etat.onboardingFait) return;
+  setTimeout(ouvrirMessageMatin,750);
+}
+function ouvrirMessageMatin(){
+  const pct=pctBirkin(), s=etat.streak.compte;
+  const jours=["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+  const m=MATIN_MSGS[jourEpoque()%MATIN_MSGS.length];
+  $("matinGlyph").textContent=m.g;
+  $("matinTitre").textContent=m.t;
+  $("matinCorps").textContent=m.c(pct,s,jours[new Date().getDay()]);
+  $("matinSalut").textContent="Bonjour, "+(etat.profil&&etat.profil.devise?"Artisane":"Artisane");
+  $("matinStats").innerHTML=
+    `<div class="matin-stat-b"><span class="matin-stat-n">${Math.round(pct)}%</span><span class="matin-stat-l">de ton Birkin</span></div>`+
+    `<div class="matin-stat-b"><span class="matin-stat-n">${s}</span><span class="matin-stat-l">jours de fil</span></div>`;
+  $("matinEcran").classList.add("actif");
+}
+function fermerMessageMatin(){
+  $("matinEcran").classList.remove("actif");
+  etat.matinVu=cleJour(); sauver();
+}
+
+/* V9.3 — Graphique timeline */
+function rendreGraphTimeline(){
+  const cont=$("graphZone"); if(!cont) return;
+  const vires=etat.virements;
+  if(vires.length<2){ cont.innerHTML='<div class="graph-zero">Ton graphique apparaîtra après le deuxième virement ✦</div>'; return; }
+  const map={};let cumul=0;
+  [...vires].sort((a,b)=>a.ts-b.ts).forEach(v=>{ const k=cleJour(new Date(v.ts)); map[k]=(map[k]||0)+v.montant; });
+  const keys=Object.keys(map).sort();
+  const pts=[];keys.forEach(k=>{ cumul+=map[k]; pts.push({k,v:cumul}); });
+  const W=320,H=70,pad=10;
+  const maxV=Math.max(pts[pts.length-1].v,1);
+  const xS=i=>pad+(i/Math.max(1,pts.length-1))*(W-pad*2);
+  const yS=v=>H-pad-(v/maxV)*(H-pad*2);
+  let path="",area=`M${xS(0)},${H} `;
+  pts.forEach((p,i)=>{
+    const x=xS(i),y=yS(p.v);
+    if(i===0){path=`M${x},${y}`;area+=`L${x},${y} `;}
+    else{path+=` L${x},${y}`;area+=`L${x},${y} `;}
+  });
+  area+=`L${xS(pts.length-1)},${H} Z`;
+  const fd=k=>{const d=new Date(k);return d.getDate()+"/"+(("0"+(d.getMonth()+1)).slice(-2));};
+  cont.innerHTML=`<div class="graph-zone" style="position:relative">
+    <svg class="graph-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <defs><linearGradient id="graphGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--or)" stop-opacity=".45"/>
+        <stop offset="100%" stop-color="var(--or)" stop-opacity="0"/>
+      </linearGradient></defs>
+      <path class="graph-area" d="${area}"/>
+      <path class="graph-line" d="${path}"/>
+      ${pts.map((p,i)=>`<circle class="graph-point" cx="${xS(i)}" cy="${yS(p.v)}" r="3.5" data-v="${fmt(p.v)}" data-d="${fd(p.k)}"/>`).join("")}
+    </svg>
+    <div class="graph-tooltip" id="graphTip"></div>
+  </div>
+  <div style="display:flex;justify-content:space-between;font-size:.6rem;color:var(--taupe);opacity:.5;padding:2px ${pad}px 0">
+    <span>${fd(keys[0])}</span><span>${fmt(pts[pts.length-1].v)} € total</span><span>${fd(keys[keys.length-1])}</span>
+  </div>`;
+  cont.querySelectorAll(".graph-point").forEach(pt=>{
+    pt.addEventListener("pointerenter",e=>{
+      const tt=$("graphTip");
+      tt.textContent=pt.dataset.d+" · "+pt.dataset.v+" €";
+      tt.style.left=e.target.cx.baseVal.value+"px";
+      tt.style.top=e.target.cy.baseVal.value+"px";
+      tt.style.opacity="1";
+    });
+    pt.addEventListener("pointerleave",()=>{ const tt=$("graphTip");if(tt)tt.style.opacity="0"; });
+  });
+}
+
+/* V9.4 — Flamme de constance */
+function construireFlamme(s){
+  const h=22+Math.min(30,s*.3);
+  const r=s<10?200:s<30?235:250,g=s<10?155:s<30?115:148,b=s<10?75:s<30?28:18;
+  const ic=s>20?"#FFDF80":"#FFBE6B";
+  return `<svg class="flamme-svg" width="38" height="${Math.round(h+12)}" viewBox="0 0 38 ${Math.round(h+12)}">
+    <path d="M19,${Math.round(h+10)} C8,${Math.round(h+10)} 4,${Math.round(h*.7+4)} 6,${Math.round(h*.45+4)} C8,${Math.round(h*.25+4)} 14,${Math.round(h*.4+4)} 14,${Math.round(h*.2+4)} C14,${Math.round(h*.05+4)} 17,3 19,3 C21,3 24,${Math.round(h*.05+4)} 24,${Math.round(h*.2+4)} C24,${Math.round(h*.4+4)} 30,${Math.round(h*.25+4)} 32,${Math.round(h*.45+4)} C34,${Math.round(h*.7+4)} 30,${Math.round(h+10)} 19,${Math.round(h+10)} Z" fill="rgb(${r},${g},${b})" opacity=".92"/>
+    <path d="M19,${Math.round(h+8)} C14,${Math.round(h+8)} 12,${Math.round(h*.7+4)} 13,${Math.round(h*.5+4)} C14,${Math.round(h*.35+4)} 17,${Math.round(h*.45+4)} 17,${Math.round(h*.3+4)} C17,${Math.round(h*.15+4)} 18,7 19,6 C20,7 21,${Math.round(h*.15+4)} 21,${Math.round(h*.3+4)} C21,${Math.round(h*.45+4)} 24,${Math.round(h*.35+4)} 25,${Math.round(h*.5+4)} C26,${Math.round(h*.7+4)} 24,${Math.round(h+8)} 19,${Math.round(h+8)} Z" fill="${ic}" opacity=".88"/>
+  </svg>`;
+}
+function rendreFlamme(){
+  const cont=$("flammeZone"); if(!cont) return;
+  const s=etat.streak.compte,rec=etat.streak.record;
+  const msg=s===0?"Le rituel commence aujourd’hui":s<7?"La constance s’installe":s<30?"Une vraie discipline de maison":"Digne des plus grands ateliers";
+  cont.innerHTML=`<div class="flamme-zone">
+    ${construireFlamme(s)}
+    <div class="flamme-info">
+      <div class="flamme-nb"><em>${s}</em> jour${s>1?"s":""}</div>
+      <div class="flamme-lab">${msg}</div>
+      ${rec>0?`<div class="flamme-rec">Record <span>⚡ ${rec} j</span></div>`:""}
+    </div>
+  </div>`;
+}
+
+/* V9.5 — Calculatrice anti-achat permanente */
+function rendreCalcAnti(){
+  const cont=$("calcAchatZone"); if(!cont) return;
+  cont.innerHTML=`<div class="calc-anti">
+    <div class="calc-anti-label">Miroir anti-achat</div>
+    <div class="calc-anti-row">
+      <input class="calc-anti-input" id="calcAntiInput" type="number" min="1" placeholder="Prix de l’article…" inputmode="decimal">
+      <span class="calc-anti-eur">€</span>
+    </div>
+    <div class="calc-anti-res" id="calcAntiRes">
+      <div class="calc-anti-bloc"><span class="calc-anti-num" id="calcAntiPct">—</span><span class="calc-anti-lab">de ton Birkin</span></div>
+      <div class="calc-anti-bloc"><span class="calc-anti-num" id="calcAntiSem">—</span><span class="calc-anti-lab">semaines d’épargne</span></div>
+    </div>
+  </div>`;
+  const inp=$("calcAntiInput");
+  if(inp) inp.addEventListener("input",()=>{
+    const p=parseFloat(inp.value)||0;
+    if(p>0){
+      $("calcAntiPct").textContent=(p/etat.objectifBirkin*100).toFixed(1)+"%";
+      $("calcAntiSem").textContent=(p/(etat.objectifSemaine||50)).toFixed(1)+" sem.";
+      $("calcAntiRes").classList.add("v");
+    } else { $("calcAntiRes").classList.remove("v"); }
+  });
+}
+
+/* V9.6 — Cérémonie Palier Hermès */
+let cermoFrameId=null;
+function lancerCeremonie(palier){
+  $("cermoGlyph").textContent=palier.glyph||"✦";
+  $("cermoTitre").textContent=palier.nom;
+  $("cermoSous").textContent=palier.sous;
+  $("cermoPoeme").textContent=PALIER_POEMES[palier.id]||"";
+  $("cermoEcran").classList.add("actif");
+  carillon();
+  const canvas=$("cermoCanvas");
+  if(!canvas||mouvementReduit) return;
+  canvas.width=innerWidth; canvas.height=innerHeight;
+  const ctx2=canvas.getContext("2d");
+  const ps=Array.from({length:70},()=>({
+    x:Math.random()*innerWidth,y:-20,
+    vx:(Math.random()-.5)*1.8,vy:1+Math.random()*2.5,
+    r:Math.random()*3.5+1.5,a:1,
+    c:["#DCBE82","#E8CE94","#F5E2B4","#B6924E","#FDFAF3"][Math.floor(Math.random()*5)]
+  }));
+  if(cermoFrameId) cancelAnimationFrame(cermoFrameId);
+  function draw(){
+    ctx2.clearRect(0,0,canvas.width,canvas.height);
+    ps.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.a-=.006;
+      if(p.y>canvas.height||p.a<0){p.y=-20;p.x=Math.random()*canvas.width;p.a=1;}
+      ctx2.globalAlpha=Math.max(0,p.a); ctx2.fillStyle=p.c;
+      ctx2.beginPath(); ctx2.arc(p.x,p.y,p.r,0,Math.PI*2); ctx2.fill();
+    });
+    ctx2.globalAlpha=1;
+    cermoFrameId=requestAnimationFrame(draw);
+  }
+  draw();
+}
+function fermerCeremonie(){
+  $("cermoEcran").classList.remove("actif");
+  if(cermoFrameId){ cancelAnimationFrame(cermoFrameId); cermoFrameId=null; }
+  const c=$("cermoCanvas");
+  if(c) c.getContext("2d").clearRect(0,0,c.width,c.height);
+}
+function verifierCeremonie(tAvant,tApres){
+  const p=[...PALIERS].sort((a,b)=>a.prix-b.prix).find(p=>tAvant<p.prix&&tApres>=p.prix);
+  if(p) setTimeout(()=>lancerCeremonie(p),2800);
+}
+
+/* V9.7 — Horizon animé */
+function rendreHorizonAnime(){
+  const cont=$("horizonAnimeZone"); if(!cont) return;
+  const r=rythmeJournalier();
+  const reste=Math.max(0,etat.objectifBirkin-total());
+  if(reste<=0){ cont.innerHTML='<div class="horizon-a-phrase" style="color:var(--or)">✦ Birkin atteint — le Faubourg t\'attend.</div>'; return; }
+  if(!r||etat.virements.length<2){ cont.innerHTML=''; return; }
+  const jours=Math.ceil(reste/r);
+  const mois=Math.floor(jours/30);
+  const sem=Math.floor((jours%30)/7);
+  const j=jours%7;
+  const arrivee=new Date(Date.now()+jours*86400000);
+  const moisNom=arrivee.toLocaleDateString("fr-FR",{month:"long",year:"numeric"});
+  let unites="";
+  if(mois>0) unites+=`<div class="horizon-a-unite"><span class="horizon-a-chiffre">${mois}</span><div class="horizon-a-lab">mois</div></div>`;
+  if(sem>0) unites+=`<div class="horizon-a-unite"><span class="horizon-a-chiffre">${sem}</span><div class="horizon-a-lab">sem.</div></div>`;
+  unites+=`<div class="horizon-a-unite"><span class="horizon-a-chiffre">${j||jours}</span><div class="horizon-a-lab">jours</div></div>`;
+  cont.innerHTML=`<div class="horizon-a-rythme"><span class="horizon-a-dot"></span><span>${fmt(r*7)} €/semaine à ce rythme</span></div>
+    <div class="horizon-a-compte">${unites}</div>
+    <div class="horizon-a-phrase">Arrivée estimée : <em>${moisNom}</em></div>`;
+}
+
+/* V9.8 — Digest hebdomadaire */
+function rendreDigest(){
+  const cont=$("digestZone"); if(!cont) return;
+  const estLundi=new Date().getDay()===1;
+  if((!estLundi)||etat.digestVu===cleJour()||etat.virements.length<3){ cont.innerHTML=""; return; }
+  const lundi=lundiSemaine();
+  const lPrec=lundi-7*86400000;
+  const vS=etat.virements.filter(v=>v.ts>=lundi).reduce((a,v)=>a+v.montant,0);
+  const vP=etat.virements.filter(v=>v.ts>=lPrec&&v.ts<lundi).reduce((a,v)=>a+v.montant,0);
+  const diff=vP>0?Math.round((vS-vP)/vP*100):null;
+  const msg=vP===0?"C’est ta première semaine complète. Un beau début.":
+            vS>vP?`Tu as épargné ${diff}% de plus que la semaine précédente. Continue sur ta lancée.`:
+            vS===0?"La semaine a été silencieuse. Ce lundi, reprends le fil.":
+            "La semaine précédente était plus forte. Ce lundi, tu recommences — et c’est déjà beaucoup.";
+  cont.innerHTML=`<div class="carte digest-wrap vue"><div class="digest-head">
+    <div class="digest-titre">❖ Ton bilan de la semaine</div>
+    <button class="digest-close" id="btnDigestClose">✕</button>
+  </div>
+  <div class="digest-stats">
+    <div class="digest-sb"><span class="digest-sb-n">${fmt(vP)} €</span><span class="digest-sb-l">semaine précédente</span></div>
+    <div class="digest-sb"><span class="digest-sb-n ${diff!==null?(vS>=vP?"pos":"neg"):""}">${fmt(vS)} €</span><span class="digest-sb-l">cette semaine</span></div>
+  </div>
+  <div class="digest-msg">${msg}</div></div>`;
+  const btn=$("btnDigestClose");
+  if(btn) btn.addEventListener("click",()=>{ cont.innerHTML=""; etat.digestVu=cleJour(); sauver(); });
+}
+
+/* V9.9 — Défi Éclair */
+function flashDuJour(){ return FLASH_DEFIS[sceau(jourEpoque()*7+3,FLASH_DEFIS.length)]; }
+function rendreFlashDefi(){
+  const cont=$("flashZone"); if(!cont) return;
+  const f=flashDuJour();
+  const fait=etat.flashFait===cleJour();
+  const sugg=f.sugg();
+  cont.innerHTML=`<div class="flash-zone${fait?" fait":""}">
+    <span class="flash-badge">${fait?"✓ accompli":"⚡ Défi éclair"}</span>
+    <div class="flash-nom">${f.nom}</div>
+    <div class="flash-desc">${f.desc}</div>
+    <div class="flash-timer">${fait?"Bien joué — à demain pour le prochain.":"Valable aujourd’hui seulement · suggestion : "+fmt(sugg)+" €"}</div>
+    <button class="flash-btn" id="btnFlash" ${fait?"disabled":""}>${fait?"Défi accompli ❖":"Relever ce défi · "+fmt(sugg)+" €"}</button>
+  </div>`;
+  if(!fait){ const btn=$("btnFlash"); if(btn) btn.addEventListener("click",()=>{ etat.flashFait=cleJour(); sauver(); ouvrirVirement(sugg,false,"flash"); rendreFlashDefi(); }); }
+}
+
+/* V9.10 — Niveau enrichi */
+function rendreNiveauEnrichi(){
+  const cont=$("niveauEnrichiZone"); if(!cont) return;
+  const pct=pctBirkin();
+  const niv=niveauCourant();
+  const idx=NIVEAUX.findIndex(n=>n.nom===niv.nom);
+  const suiv=NIVEAUX[idx+1]||null;
+  const enr=NIVEAUX_ENRICHIS[Math.min(idx,NIVEAUX_ENRICHIS.length-1)];
+  const seuilA=niv.seuil,seuilS=suiv?suiv.seuil:100;
+  const xpPct=suiv?Math.max(0,Math.min(100,Math.round((pct-seuilA)/(seuilS-seuilA)*100))):100;
+  cont.innerHTML=`<div class="niv-enrichi">
+    <div class="niv-enrichi-top">
+      <div><div class="eyebrow" style="margin-bottom:3px">Ton rang</div><div class="niv-nom-g">${niv.nom}</div></div>
+      <div><div class="eyebrow" style="margin-bottom:3px;text-align:right">${suiv?"Prochain":"Final"}</div><div class="niv-suiv">${suiv?suiv.nom:"Le Faubourg ✦"}</div></div>
+    </div>
+    <div class="niv-xp-bar"><div class="niv-xp-fill" style="width:${xpPct}%"></div></div>
+    <div class="niv-labels"><span>${Math.round(pct)}%</span>${suiv?`<span>${seuilS-Math.round(pct)}% encore</span>`:"<span>Objectif atteint ✦</span>"}</div>
+    <div class="niv-identite">${enr.identite}<br><em style="opacity:.7">${enr.quote}</em></div>
+  </div>`;
+}
+
 let logoTaps = 0, logoTimer = null;
 function initEvenements(){
   $("btnMedaillon").addEventListener("click", () => ouvrirVirement(null, true));
@@ -4262,6 +4708,19 @@ function initEvenements(){
   /* V8 — Notifications (setup dans l'onboarding et éventuellement via bouton futur) */
   const obNotif = $("obNotifSetup");
   if(obNotif) obNotif.addEventListener("click", demanderNotifications);
+
+  /* V9 — Nouveaux handlers */
+  const btnMatin = $("btnMatinFermer");
+  if(btnMatin) btnMatin.addEventListener("click", fermerMessageMatin);
+
+  const btnCermo = $("btnCermoFermer");
+  if(btnCermo) btnCermo.addEventListener("click", fermerCeremonie);
+
+  /* Fermer matin sur clic overlay */
+  const matinEcran = $("matinEcran");
+  if(matinEcran) matinEcran.addEventListener("click", e => {
+    if(e.target === matinEcran) fermerMessageMatin();
+  });
 }
 
 document.body.dataset.theme = etat.theme;
@@ -4275,6 +4734,7 @@ initCarteGratter();
 initProfondeur();
 changerOnglet("atelier");
 afficherFAB(true);
+verifierMessageMatin();
 if(etat.notifActivees) planifierNotificationLocale();
 
 /* V7 — Premier lancement : ouvrir l'onboarding ; sinon, montrer le bouton de re-personnalisation */
@@ -4284,5 +4744,29 @@ if(!etat.onboardingFait){
   $("btnPersonnaliser").classList.add("visible");
 }
 </script>
+
+<!-- V9.2 — Message du Matin -->
+<div class="matin-ecran" id="matinEcran" role="dialog" aria-modal="true" aria-label="Message du matin">
+  <div class="matin-carte">
+    <span class="matin-glyph" id="matinGlyph">✦</span>
+    <div class="matin-salut" id="matinSalut">Bonjour, Artisane</div>
+    <div class="matin-titre" id="matinTitre">Un nouveau jour pour ton Birkin</div>
+    <p class="matin-corps" id="matinCorps"></p>
+    <div class="matin-stats" id="matinStats"></div>
+    <button class="matin-btn" id="btnMatinFermer">Commencer cette journée ✦</button>
+  </div>
+</div>
+
+<!-- V9.6 — Cérémonie Palier Hermès -->
+<div class="cermo-ecran" id="cermoEcran" role="dialog" aria-modal="true" aria-label="Palier Hermès atteint">
+  <canvas class="cermo-canvas" id="cermoCanvas"></canvas>
+  <div class="cermo-glyph" id="cermoGlyph">✦</div>
+  <div class="cermo-eyebrow">Tu peux désormais t'offrir</div>
+  <div class="cermo-titre" id="cermoTitre">Le Twilly</div>
+  <div class="cermo-sous" id="cermoSous">un ruban de soie autour de l'anse</div>
+  <p class="cermo-poeme" id="cermoPoeme"></p>
+  <button class="cermo-btn" id="btnCermoFermer">Continuer vers le Birkin →</button>
+</div>
+
 </body>
 </html>

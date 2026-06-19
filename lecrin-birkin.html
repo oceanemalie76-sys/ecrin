@@ -59,57 +59,7 @@
    V10 — LES 7 MAISONS D'HERMES (palettes quotidiennes)
 ═══════════════════════════════════════════════════════════ */
 
-/* 0 Lundi Maison de la Soie */
-body.palette-0{--ivoire:#FAF0F4;--ivoire-haut:#FDF5F8;--parchemin:#F5DDE6;
-  --sable:#ECC5D3;--sable-fonce:#D9A3B5;--champagne:#EDCCD8;
-  --taupe:#9C607A;--taupe-fonce:#5E2040;--encre:#3D1025;
-  --or:#C4607A;--or-clair:#E090A0;--or-vif:#EAA8B5;
-  --soie:#9B2040;--soie-clair:#D06080;
-  --saison-1:#EDCCD8;--saison-2:#C9A0B0;--saison-accent:#C4607A;}
-
-/* 1 Mardi Maison du Cuir */
-body.palette-1{--ivoire:#FAF3E8;--ivoire-haut:#FDF8F0;--parchemin:#F2E1C8;
-  --sable:#E4CEAD;--sable-fonce:#CEB08A;--champagne:#E8D5B0;
-  --taupe:#8B6B4A;--taupe-fonce:#5E3D20;--encre:#3D2410;
-  --or:#8B5E3C;--or-clair:#B8844E;--or-vif:#CC9A5E;
-  --soie:#6B3A1F;--soie-clair:#A06040;
-  --saison-1:#E8D5B0;--saison-2:#C8A878;--saison-accent:#8B5E3C;}
-
-/* 2 Mercredi Maison des Cristaux */
-body.palette-2{--ivoire:#F0F5FA;--ivoire-haut:#F6FAFD;--parchemin:#D8E8F5;
-  --sable:#C0D8EE;--sable-fonce:#9ABCD8;--champagne:#D0E4F5;
-  --taupe:#4A7090;--taupe-fonce:#1E3F60;--encre:#0E1E35;
-  --or:#2C6090;--or-clair:#4A88C0;--or-vif:#68A8D8;
-  --soie:#1A3F66;--soie-clair:#3A68A8;
-  --saison-1:#D0E4F5;--saison-2:#9ABCD8;--saison-accent:#2C6090;}
-
-/* 3 Jeudi Maison du Bois */
-body.palette-3{--ivoire:#F2F5F0;--ivoire-haut:#F7FAF5;--parchemin:#DCE8D8;
-  --sable:#C0D8BC;--sable-fonce:#9ABC94;--champagne:#D0E4CC;
-  --taupe:#4A6B48;--taupe-fonce:#2A4A28;--encre:#142014;
-  --or:#3D6B3A;--or-clair:#5C8F58;--or-vif:#7AAD74;
-  --soie:#2A4D28;--soie-clair:#4A7848;
-  --saison-1:#D0E4CC;--saison-2:#9ABC94;--saison-accent:#3D6B3A;}
-
-/* 4 Vendredi Maison Doree */
-body.palette-4{--or:#A07830;--or-clair:#C8A050;--or-vif:#DCC070;
-  --saison-accent:#A07830;}
-
-/* 5 Samedi Maison des Jardins */
-body.palette-5{--ivoire:#FAF0FA;--ivoire-haut:#FDF5FD;--parchemin:#EED8EE;
-  --sable:#DCC0DC;--sable-fonce:#C4A0C4;--champagne:#E8CCE8;
-  --taupe:#7A4A7A;--taupe-fonce:#4E2A4E;--encre:#2A1030;
-  --or:#8A4A84;--or-clair:#B070AC;--or-vif:#C890C0;
-  --soie:#5E2055;--soie-clair:#9060A0;
-  --saison-1:#E8CCE8;--saison-2:#C4A0C4;--saison-accent:#8A4A84;}
-
-/* 6 Dimanche Maison Royale */
-body.palette-6{--ivoire:#FAF5E0;--ivoire-haut:#FDF9EC;--parchemin:#F5E8B8;
-  --sable:#E8D490;--sable-fonce:#D4B860;--champagne:#F0E0A0;
-  --taupe:#8B7040;--taupe-fonce:#5E4610;--encre:#352200;
-  --or:#8B6914;--or-clair:#C49A28;--or-vif:#E0BC48;
-  --soie:#5E4400;--soie-clair:#A07820;
-  --saison-1:#F0E0A0;--saison-2:#D4B860;--saison-accent:#8B6914;}
+/* V11 — univers CSS moved after nuit block below */
 
 /* V10 Bandeau Maison du Jour */
 .maison-band{font:400 .65rem/1 "Cormorant Garamond",serif;
@@ -151,13 +101,13 @@ body.palette-6{--ivoire:#FAF5E0;--ivoire-haut:#FDF9EC;--parchemin:#F5E8B8;
 .reveil-content{position:relative;z-index:1;
   display:flex;flex-direction:column;align-items:center;
   gap:.9rem;padding:2rem 1.5rem;text-align:center;max-width:340px;}
-.reveil-logo{font-family:"Cormorant Garamond",serif;font-size:1.7rem;font-weight:400;
-  color:var(--encre);letter-spacing:.12em;
-  animation:shimmer-logo 2.4s ease-out forwards;opacity:0;}
-.reveil-logo em{font-style:italic;color:var(--or);}
+.reveil-logo{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:300;
+  color:var(--encre);letter-spacing:.2em;text-transform:uppercase;
+  animation:shimmer-logo 1.4s ease-out forwards;opacity:0;}
+.reveil-logo em{font-style:italic;color:var(--or);font-weight:400;}
 @keyframes shimmer-logo{
-  0%{opacity:0;transform:translateY(-12px);}
-  20%{opacity:1;transform:translateY(0);}
+  0%{opacity:0;transform:translateY(-8px);}
+  30%{opacity:1;transform:translateY(0);}
   100%{opacity:1;transform:translateY(0);}}
 .reveil-maison{font-family:"Cormorant Garamond",serif;font-size:.7rem;font-weight:400;
   letter-spacing:.22em;text-transform:uppercase;color:var(--or);
@@ -1649,6 +1599,238 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
   font-family:var(--serif);font-style:italic;font-size:1.12rem;
   color:var(--taupe-fonce);line-height:1.55;max-width:280px;margin:0 auto;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   V11 — LES 7 UNIVERS HERMÈS
+   Insertés APRÈS body[data-theme="nuit"] pour cascader dessus
+   body.univers-N override tout : couleur, forme, typographie
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── 0 LUNDI — L'ÉDITORIAL ────────────────────────────────────
+   Blanc pur. Noir radical. Editorial Celine.
+────────────────────────────────────────────────────────────── */
+body.univers-0{
+  --ivoire:#FFFFFF;--ivoire-haut:#FFFFFF;--parchemin:#F5F5F5;
+  --sable:#E8E8E8;--sable-fonce:#C8C8C8;--champagne:#F0F0F0;
+  --taupe:#666;--taupe-fonce:#222;--encre:#000000;
+  --or:#7A5A10;--or-clair:#A07020;--or-vif:#C09030;
+  --soie:#8B1A2A;--soie-clair:#C43050;
+  --bord:1.5px solid #000;--bord-fort:2px solid #000;
+  background:#FFF;
+}
+body.univers-0 .carte{
+  border-radius:0!important;border:1.5px solid #000!important;
+  box-shadow:none!important;background:#FFF!important;}
+body.univers-0 .tete{
+  background:#FFF!important;border-bottom:2px solid #000!important;}
+body.univers-0 .logo{
+  font-weight:700!important;letter-spacing:.04em!important;color:#000!important;}
+body.univers-0 .logo em{color:#7A5A10!important;font-style:normal!important;}
+body.univers-0 .onglet{border-radius:0!important;}
+body.univers-0 .eyebrow{color:#000!important;letter-spacing:.25em!important;}
+body.univers-0 #reveilEcran{background:#FFF!important;}
+body.univers-0 .reveil-logo{color:#000!important;}
+body.univers-0 .reveil-logo em{color:#7A5A10!important;}
+body.univers-0 .reveil-pct,.reveil-montant{color:#000!important;}
+
+/* ─── 1 MARDI — LE VELOURS NOIR ─────────────────────────────────
+   Noir velours. Rose fané. Boudoir Parisien des années 30.
+────────────────────────────────────────────────────────────── */
+body.univers-1{
+  --ivoire:#100509;--ivoire-haut:#0A0205;--parchemin:#1C0A12;
+  --sable:#2A0D18;--sable-fonce:#3D1525;--champagne:#200A14;
+  --taupe:#C480A0;--taupe-fonce:#E8B0D0;--encre:#FAE8F2;
+  --or:#D4A040;--or-clair:#E8C060;--or-vif:#F0D080;
+  --soie:#D0508A;--soie-clair:#E880B0;
+  --bord:1px solid rgba(208,80,138,.25);--bord-fort:1px solid rgba(208,80,138,.5);
+  background:#0A0205;
+}
+body.univers-1 .carte{
+  background:linear-gradient(135deg,#1C0A12,#200A14)!important;
+  border-radius:10px!important;
+  border:1px solid rgba(208,80,138,.3)!important;
+  box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 40px rgba(208,80,138,.06)!important;}
+body.univers-1 .tete{
+  background:#050102!important;
+  border-bottom:1px solid rgba(208,80,138,.2)!important;}
+body.univers-1 .logo em{color:#D4A040!important;}
+body.univers-1 #reveilEcran{background:#0A0205!important;}
+body.univers-1 .reveil-logo em{color:#D0508A!important;}
+
+/* ─── 2 MERCREDI — LA SAVANE KELLY ──────────────────────────────
+   Vert forêt profond. Header sombre. Lumineux et vivant.
+────────────────────────────────────────────────────────────── */
+body.univers-2{
+  --ivoire:#EDFAE6;--ivoire-haut:#F5FEF0;--parchemin:#D8F0D0;
+  --sable:#C0E0B4;--sable-fonce:#90C080;--champagne:#D8F0CC;
+  --taupe:#1A5C28;--taupe-fonce:#0D3018;--encre:#082010;
+  --or:#8B6A00;--or-clair:#B89000;--or-vif:#D4B020;
+  --soie:#1A5C28;--soie-clair:#2A8840;
+  --bord:1px solid rgba(26,92,40,.25);--bord-fort:2px solid rgba(26,92,40,.6);
+  background:#EDFAE6;
+}
+body.univers-2 .carte{
+  border-radius:4px!important;background:#F5FEF0!important;
+  border:none!important;border-left:4px solid #1A5C28!important;
+  box-shadow:0 2px 12px rgba(26,92,40,.08)!important;}
+body.univers-2 .tete{
+  background:#0D3018!important;
+  border-bottom:none!important;}
+body.univers-2 .tete *{color:#D8F0D0!important;}
+body.univers-2 .logo,.logo em{color:#D4B020!important;}
+body.univers-2 .btn-icone{color:#D8F0D0!important;border-color:rgba(216,240,208,.2)!important;}
+body.univers-2 #reveilEcran{background:#0D3018!important;}
+body.univers-2 .reveil-logo{color:#D8F0D0!important;}
+body.univers-2 .reveil-logo em{color:#D4B020!important;}
+body.univers-2 .reveil-montant,.reveil-pct{color:#D8F0D0!important;}
+body.univers-2 .reveil-label-s{color:#90C080!important;}
+
+/* ─── 3 JEUDI — L'ATELIER CUIVRÉ ───────────────────────────────
+   Nuit d'atelier. Cuivre brûlé. Artisan de luxe.
+────────────────────────────────────────────────────────────── */
+body.univers-3{
+  --ivoire:#100800;--ivoire-haut:#0C0500;--parchemin:#1C1000;
+  --sable:#2A1800;--sable-fonce:#3A2208;--champagne:#201000;
+  --taupe:#C8804A;--taupe-fonce:#E0B080;--encre:#F5E8D0;
+  --or:#CF6B30;--or-clair:#E08A4A;--or-vif:#ECAC60;
+  --soie:#B04820;--soie-clair:#D07040;
+  --bord:1px solid rgba(207,107,48,.3);--bord-fort:1px solid rgba(207,107,48,.6);
+  background:#0C0500;
+}
+body.univers-3 .carte{
+  background:linear-gradient(160deg,#1C1000,#201000)!important;
+  border-radius:0!important;
+  border-top:none!important;border-right:none!important;border-bottom:none!important;
+  border-left:3px solid #CF6B30!important;
+  box-shadow:0 4px 20px rgba(0,0,0,.6),inset 4px 0 20px rgba(207,107,48,.04)!important;}
+body.univers-3 .tete{
+  background:#060300!important;
+  border-bottom:1px solid rgba(207,107,48,.2)!important;}
+body.univers-3 .logo em{color:#CF6B30!important;}
+body.univers-3 #reveilEcran{background:#0C0500!important;}
+body.univers-3 .reveil-logo em{color:#CF6B30!important;}
+
+/* ─── 4 VENDREDI — LA NUIT FAUBOURG ─────────────────────────────
+   Minuit bleu électrique. Or neon. Exclusivité absolue.
+────────────────────────────────────────────────────────────── */
+body.univers-4{
+  --ivoire:#020610;--ivoire-haut:#020610;--parchemin:#060D20;
+  --sable:#0A1430;--sable-fonce:#102040;--champagne:#080E24;
+  --taupe:#7090D0;--taupe-fonce:#A0C0F0;--encre:#E0ECFF;
+  --or:#E8C030;--or-clair:#F0D860;--or-vif:#F8EC90;
+  --soie:#6080FF;--soie-clair:#90A8FF;
+  --bord:1px solid rgba(232,192,48,.2);--bord-fort:1px solid rgba(232,192,48,.5);
+  background:#020610;
+}
+body.univers-4 .carte{
+  background:linear-gradient(135deg,#060D20,#080E24)!important;
+  border-radius:8px!important;
+  border:1px solid rgba(232,192,48,.18)!important;
+  box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 60px rgba(232,192,48,.04),
+             0 0 120px rgba(96,128,255,.03)!important;}
+body.univers-4 .tete{
+  background:#010408!important;
+  border-bottom:1px solid rgba(232,192,48,.15)!important;}
+body.univers-4 .logo em{color:#E8C030!important;}
+body.univers-4 #reveilEcran{background:#020610!important;}
+body.univers-4 .reveil-logo{color:#E0ECFF!important;}
+body.univers-4 .reveil-logo em{color:#E8C030!important;}
+body.univers-4 .reveil-montant{color:#E0ECFF!important;}
+body.univers-4 .reveil-pct{color:#E8C030!important;}
+body.univers-4 .reveil-label-s{color:#7090D0!important;}
+
+/* ─── 5 SAMEDI — L'AURORE ───────────────────────────────────────
+   Aube enflammée. Énergie du samedi. Orange soleil levant.
+────────────────────────────────────────────────────────────── */
+body.univers-5{
+  --ivoire:#FFF3E8;--ivoire-haut:#FFFAF5;--parchemin:#FFE8CC;
+  --sable:#FFD4A8;--sable-fonce:#FFBE80;--champagne:#FFE8C8;
+  --taupe:#993300;--taupe-fonce:#662200;--encre:#3D1800;
+  --or:#CC4400;--or-clair:#E86020;--or-vif:#FF8040;
+  --soie:#993300;--soie-clair:#CC5520;
+  --bord:1px solid rgba(204,68,0,.18);--bord-fort:1px solid rgba(204,68,0,.4);
+  background:#FFF3E8;
+}
+body.univers-5 .carte{
+  border-radius:16px!important;background:rgba(255,255,255,.92)!important;
+  border:none!important;
+  box-shadow:0 8px 32px rgba(204,68,0,.12),0 2px 8px rgba(204,68,0,.08)!important;}
+body.univers-5 .tete{
+  background:linear-gradient(135deg,#CC4400,#FF8040)!important;
+  border-bottom:none!important;}
+body.univers-5 .tete *{color:#FFF5EE!important;}
+body.univers-5 .logo,.logo em{color:#FFF5EE!important;}
+body.univers-5 .btn-icone{color:#FFF5EE!important;border-color:rgba(255,245,238,.3)!important;}
+body.univers-5 #reveilEcran{background:linear-gradient(170deg,#CC4400,#FF8040,#FFD080)!important;}
+body.univers-5 .reveil-logo{color:#FFF5EE!important;}
+body.univers-5 .reveil-logo em{color:#FFE0A0!important;}
+body.univers-5 .reveil-montant,.reveil-pct,.reveil-label-s{color:#FFF5EE!important;}
+
+/* ─── 6 DIMANCHE — LA REINE ─────────────────────────────────────
+   Noir absolu. Or impérial. La quintessence du luxe.
+────────────────────────────────────────────────────────────── */
+body.univers-6{
+  --ivoire:#060400;--ivoire-haut:#060400;--parchemin:#0E0900;
+  --sable:#181200;--sable-fonce:#241C00;--champagne:#100C00;
+  --taupe:#C8A020;--taupe-fonce:#E8C840;--encre:#F0E0A0;
+  --or:#C8A000;--or-clair:#E8C020;--or-vif:#F8E050;
+  --soie:#A07800;--soie-clair:#C09820;
+  --bord:1px solid rgba(200,160,0,.2);--bord-fort:1px solid rgba(200,160,0,.5);
+  background:#060400;
+}
+body.univers-6 .carte{
+  background:linear-gradient(160deg,#0E0900,#060400)!important;
+  border-radius:2px!important;
+  border:1px solid rgba(200,160,0,.25)!important;
+  box-shadow:0 8px 40px rgba(0,0,0,.8),0 0 30px rgba(200,160,0,.06)!important;}
+body.univers-6 .tete{
+  background:radial-gradient(ellipse at 50% 0%,#1A1200,#060400)!important;
+  border-bottom:1px solid rgba(200,160,0,.2)!important;}
+body.univers-6 .logo em{color:#C8A000!important;}
+body.univers-6 #reveilEcran{
+  background:radial-gradient(ellipse 80% 60% at 50% 40%,#1A1200,#060400)!important;}
+body.univers-6 .reveil-logo{color:#F0E0A0!important;}
+body.univers-6 .reveil-logo em{color:#C8A000!important;}
+body.univers-6 .reveil-montant{color:#F0E0A0!important;}
+body.univers-6 .reveil-pct{color:#C8A000!important;}
+body.univers-6 .reveil-label-s{color:#A07800!important;}
+
+/* ─── Carte universelle override — forcer l'inheritance correcte ─ */
+body[class*="univers-"] .sac-etat,
+body[class*="univers-"] .patine-mini,
+body[class*="univers-"] .sac-oracle,
+body[class*="univers-"] .arc-pct-text,
+body[class*="univers-"] .arc-label-text,
+body[class*="univers-"] .arc-montant-text{ transition:fill .8s,color .8s; }
+body[class*="univers-"] .arc-pct-text{ fill:var(--encre)!important; }
+body[class*="univers-"] .arc-label-text{ fill:var(--taupe)!important; }
+body[class*="univers-"] .arc-montant-text{ fill:var(--or)!important; }
+body[class*="univers-"] .arc-bg{ stroke:var(--sable-fonce)!important;opacity:.4; }
+body[class*="univers-"] .arc-fill{ stroke:var(--or)!important; }
+
+/* ─── Transition globale palette ──────────────────────────────── */
+body[class*="univers-"]{
+  transition:background 1s cubic-bezier(.4,0,.2,1);}
+body[class*="univers-"] .carte{
+  transition:background 1s,border-color 1s,box-shadow 1s;}
+body[class*="univers-"] .tete{
+  transition:background 1s,border-color 1s;}
+
+/* ─── Cérémonie améliorée V11 ──────────────────────────────────── */
+#reveilEcran{transition:opacity .6s,background 1s;}
+.reveil-univers-nom{
+  font-family:"Cormorant Garamond",serif;font-size:.6rem;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--or);margin-top:.3rem;opacity:.8;
+  animation:fade-up .8s .6s both;}
+.reveil-chiffre-big{
+  font-family:"Cormorant Garamond",serif;font-size:3.5rem;font-weight:200;
+  color:var(--or);line-height:1;animation:fade-up .8s .8s both;}
+.reveil-chiffre-label{
+  font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--taupe);animation:fade-up .8s 1s both;}
+
+
 .anticipation-montant{
   font-family:var(--serif);font-size:2.8rem;font-weight:200;
   color:var(--or);margin:16px 0 4px;letter-spacing:-.02em;
@@ -4774,13 +4956,13 @@ let logoTaps = 0, logoTimer = null;
 ═══════════════════════════════════════════════════════════ */
 
 const MAISONS_JOUR = [
-  { nom:"Maison de la Soie",   palette:0, mot:"fluidite",    couleur:"#C4607A" },
-  { nom:"Maison du Cuir",      palette:1, mot:"authenticite",couleur:"#8B5E3C" },
-  { nom:"Maison des Cristaux", palette:2, mot:"clarte",      couleur:"#2C6090" },
-  { nom:"Maison du Bois",      palette:3, mot:"patience",    couleur:"#3D6B3A" },
-  { nom:"Maison Doree",        palette:4, mot:"rayonnement", couleur:"#B6924E" },
-  { nom:"Maison des Jardins",  palette:5, mot:"croissance",  couleur:"#8A4A84" },
-  { nom:"Maison Royale",       palette:6, mot:"prestige",    couleur:"#8B6914" },
+  { nom:"L'Editorial",        univers:0, mot:"clarte",       sombre:false, couleur:"#7A5A10" },
+  { nom:"Le Velours Noir",     univers:1, mot:"mystere",      sombre:true,  couleur:"#D0508A" },
+  { nom:"La Savane Kelly",     univers:2, mot:"elegance",     sombre:false, couleur:"#1A5C28" },
+  { nom:"L'Atelier Cuivre",   univers:3, mot:"authenticite", sombre:true,  couleur:"#CF6B30" },
+  { nom:"La Nuit Faubourg",    univers:4, mot:"exclusivite",  sombre:true,  couleur:"#E8C030" },
+  { nom:"L'Aurore",           univers:5, mot:"energie",      sombre:false, couleur:"#CC4400" },
+  { nom:"La Reine",            univers:6, mot:"prestige",     sombre:true,  couleur:"#C8A000" },
 ];
 
 function maisonDuJour(){
@@ -4790,8 +4972,18 @@ function maisonDuJour(){
 
 function applyPaletteDuJour(){
   const m = maisonDuJour();
-  for(let i=0;i<7;i++) document.body.classList.remove("palette-"+i);
-  document.body.classList.add("palette-"+m.palette);
+  // Retirer toutes les classes univers precedentes
+  for(let i=0;i<7;i++){
+    document.body.classList.remove("palette-"+i);
+    document.body.classList.remove("univers-"+i);
+  }
+  document.body.classList.add("univers-"+m.univers);
+  // Basculer en mode sombre si l'univers l'exige
+  if(m.sombre){
+    document.body.dataset.theme = "nuit";
+  } else {
+    document.body.dataset.theme = etat.theme || "jour";
+  }
 }
 
 function rendreMaisonBand(){
@@ -4800,6 +4992,7 @@ function rendreMaisonBand(){
   el.innerHTML = '<span class="maison-nom">' + m.nom +
     '</span><span class="maison-sep"> · </span>' +
     '<span class="maison-mot">' + m.mot + '</span>';
+  el.style.color = m.couleur;
 }
 
 function rendreArcProgress(){
@@ -4862,7 +5055,6 @@ function rendreArcProgress(){
 }
 
 function lancerReveil(){
-  if(etat.reveilVu===cleJour()) return;
   if(!etat.onboardingFait||etat.virements.length<1) return;
   const ecran=$("reveilEcran"); if(!ecran) return;
   const m=maisonDuJour();
@@ -4907,14 +5099,13 @@ function lancerReveil(){
     }
   }
   setTimeout(()=>requestAnimationFrame(animCountUp),600);
-  setTimeout(()=>ecran.classList.add("btn-visible"),2500);
-  setTimeout(()=>fermerReveil(),5200);
+  setTimeout(()=>ecran.classList.add("btn-visible"),1500);
+  setTimeout(()=>fermerReveil(),3200);
   const btn=$("btnReveilFermer");
   if(btn){ btn.onclick=null; btn.onclick=fermerReveil; }
   ecran.onclick=function(e){
     if(e.target===ecran||e.target.classList.contains("reveil-bg")) fermerReveil();
   };
-  etat.reveilVu=cleJour(); sauver();
 }
 
 function fermerReveil(){
@@ -5125,19 +5316,17 @@ if(!etat.onboardingFait){
 </div>
 
 
-<!-- V10 Le Reveil du Faubourg -->
+<!-- V11 Le Reveil du Faubourg — cérémonie radicale -->
 <div id="reveilEcran" role="dialog" aria-modal="true" aria-label="Le Reveil du Faubourg">
   <div class="reveil-bg"></div>
   <div class="reveil-content">
     <div class="reveil-logo">L'<em>Ecrin</em></div>
-    <div class="reveil-maison" id="reveilMaison"></div>
-    <div id="reveilSacWrap"><svg id="reveilSacSvg" viewBox="0 0 300 260"></svg></div>
-    <div class="reveil-stats">
-      <div class="reveil-montant" id="reveilMontant">0 €</div>
-      <div class="reveil-pct" id="reveilPct">0 %</div>
-      <div class="reveil-label-s">vers ton Birkin</div>
-    </div>
-    <button class="reveil-fermer" id="btnReveilFermer">Entrer</button>
+    <div class="reveil-univers-nom" id="reveilMaison"></div>
+    <div class="reveil-chiffre-big" id="reveilPct">0 %</div>
+    <div class="reveil-chiffre-label">de ton Birkin</div>
+    <div class="reveil-montant" id="reveilMontant">0 €</div>
+    <div class="reveil-label-s">épargnés</div>
+    <button class="reveil-fermer" id="btnReveilFermer">Entrer →</button>
   </div>
 </div>
 

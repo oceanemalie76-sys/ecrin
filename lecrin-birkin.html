@@ -1600,235 +1600,310 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
   color:var(--taupe-fonce);line-height:1.55;max-width:280px;margin:0 auto;
 }
 
+
 /* ═══════════════════════════════════════════════════════════════
-   V11 — LES 7 UNIVERS HERMÈS
-   Insertés APRÈS body[data-theme="nuit"] pour cascader dessus
-   body.univers-N override tout : couleur, forme, typographie
+   V12 — 7 UNIVERS COLORÉS & CLAIRS — NO DARK THEMES
 ═══════════════════════════════════════════════════════════════ */
 
-/* ─── 0 LUNDI — L'ÉDITORIAL ────────────────────────────────────
-   Blanc pur. Noir radical. Editorial Celine.
-────────────────────────────────────────────────────────────── */
-body.univers-0{
-  --ivoire:#FFFFFF;--ivoire-haut:#FFFFFF;--parchemin:#F5F5F5;
-  --sable:#E8E8E8;--sable-fonce:#C8C8C8;--champagne:#F0F0F0;
-  --taupe:#666;--taupe-fonce:#222;--encre:#000000;
-  --or:#7A5A10;--or-clair:#A07020;--or-vif:#C09030;
-  --soie:#8B1A2A;--soie-clair:#C43050;
-  --bord:1.5px solid #000;--bord-fort:2px solid #000;
-  background:#FFF;
+/* ─── VARIABLES D'ACCENT UNIVERSELLES ───────────────────────── */
+:root{
+  --univers-accent:#B6924E;
+  --univers-card-bg:var(--ivoire-haut);
 }
-body.univers-0 .carte{
-  border-radius:0!important;border:1.5px solid #000!important;
-  box-shadow:none!important;background:#FFF!important;}
-body.univers-0 .tete{
-  background:#FFF!important;border-bottom:2px solid #000!important;}
-body.univers-0 .logo{
-  font-weight:700!important;letter-spacing:.04em!important;color:#000!important;}
-body.univers-0 .logo em{color:#7A5A10!important;font-style:normal!important;}
-body.univers-0 .onglet{border-radius:0!important;}
-body.univers-0 .eyebrow{color:#000!important;letter-spacing:.25em!important;}
-body.univers-0 #reveilEcran{background:#FFF!important;}
-body.univers-0 .reveil-logo{color:#000!important;}
-body.univers-0 .reveil-logo em{color:#7A5A10!important;}
-body.univers-0 .reveil-pct,.reveil-montant{color:#000!important;}
 
-/* ─── 1 MARDI — LE VELOURS NOIR ─────────────────────────────────
-   Noir velours. Rose fané. Boudoir Parisien des années 30.
-────────────────────────────────────────────────────────────── */
-body.univers-1{
-  --ivoire:#100509;--ivoire-haut:#0A0205;--parchemin:#1C0A12;
-  --sable:#2A0D18;--sable-fonce:#3D1525;--champagne:#200A14;
-  --taupe:#C480A0;--taupe-fonce:#E8B0D0;--encre:#FAE8F2;
-  --or:#D4A040;--or-clair:#E8C060;--or-vif:#F0D080;
-  --soie:#D0508A;--soie-clair:#E880B0;
-  --bord:1px solid rgba(208,80,138,.25);--bord-fort:1px solid rgba(208,80,138,.5);
-  background:#0A0205;
+/* ─── NAVIGATION REPENSÉE — PILL TABS ─────────────────────────── */
+.nav-onglets{
+  background:rgba(255,255,255,.97)!important;
+  backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+  border-top:2px solid var(--univers-accent)!important;
+  padding:.5rem .3rem .6rem!important;
+  gap:.1rem!important;
+  box-shadow:0 -2px 20px rgba(0,0,0,.06)!important;
 }
-body.univers-1 .carte{
-  background:linear-gradient(135deg,#1C0A12,#200A14)!important;
-  border-radius:10px!important;
-  border:1px solid rgba(208,80,138,.3)!important;
-  box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 40px rgba(208,80,138,.06)!important;}
-body.univers-1 .tete{
-  background:#050102!important;
-  border-bottom:1px solid rgba(208,80,138,.2)!important;}
-body.univers-1 .logo em{color:#D4A040!important;}
-body.univers-1 #reveilEcran{background:#0A0205!important;}
-body.univers-1 .reveil-logo em{color:#D0508A!important;}
-
-/* ─── 2 MERCREDI — LA SAVANE KELLY ──────────────────────────────
-   Vert forêt profond. Header sombre. Lumineux et vivant.
-────────────────────────────────────────────────────────────── */
-body.univers-2{
-  --ivoire:#EDFAE6;--ivoire-haut:#F5FEF0;--parchemin:#D8F0D0;
-  --sable:#C0E0B4;--sable-fonce:#90C080;--champagne:#D8F0CC;
-  --taupe:#1A5C28;--taupe-fonce:#0D3018;--encre:#082010;
-  --or:#8B6A00;--or-clair:#B89000;--or-vif:#D4B020;
-  --soie:#1A5C28;--soie-clair:#2A8840;
-  --bord:1px solid rgba(26,92,40,.25);--bord-fort:2px solid rgba(26,92,40,.6);
-  background:#EDFAE6;
-}
-body.univers-2 .carte{
-  border-radius:4px!important;background:#F5FEF0!important;
-  border:none!important;border-left:4px solid #1A5C28!important;
-  box-shadow:0 2px 12px rgba(26,92,40,.08)!important;}
-body.univers-2 .tete{
-  background:#0D3018!important;
-  border-bottom:none!important;}
-body.univers-2 .tete *{color:#D8F0D0!important;}
-body.univers-2 .logo,.logo em{color:#D4B020!important;}
-body.univers-2 .btn-icone{color:#D8F0D0!important;border-color:rgba(216,240,208,.2)!important;}
-body.univers-2 #reveilEcran{background:#0D3018!important;}
-body.univers-2 .reveil-logo{color:#D8F0D0!important;}
-body.univers-2 .reveil-logo em{color:#D4B020!important;}
-body.univers-2 .reveil-montant,.reveil-pct{color:#D8F0D0!important;}
-body.univers-2 .reveil-label-s{color:#90C080!important;}
-
-/* ─── 3 JEUDI — L'ATELIER CUIVRÉ ───────────────────────────────
-   Nuit d'atelier. Cuivre brûlé. Artisan de luxe.
-────────────────────────────────────────────────────────────── */
-body.univers-3{
-  --ivoire:#100800;--ivoire-haut:#0C0500;--parchemin:#1C1000;
-  --sable:#2A1800;--sable-fonce:#3A2208;--champagne:#201000;
-  --taupe:#C8804A;--taupe-fonce:#E0B080;--encre:#F5E8D0;
-  --or:#CF6B30;--or-clair:#E08A4A;--or-vif:#ECAC60;
-  --soie:#B04820;--soie-clair:#D07040;
-  --bord:1px solid rgba(207,107,48,.3);--bord-fort:1px solid rgba(207,107,48,.6);
-  background:#0C0500;
-}
-body.univers-3 .carte{
-  background:linear-gradient(160deg,#1C1000,#201000)!important;
-  border-radius:0!important;
-  border-top:none!important;border-right:none!important;border-bottom:none!important;
-  border-left:3px solid #CF6B30!important;
-  box-shadow:0 4px 20px rgba(0,0,0,.6),inset 4px 0 20px rgba(207,107,48,.04)!important;}
-body.univers-3 .tete{
-  background:#060300!important;
-  border-bottom:1px solid rgba(207,107,48,.2)!important;}
-body.univers-3 .logo em{color:#CF6B30!important;}
-body.univers-3 #reveilEcran{background:#0C0500!important;}
-body.univers-3 .reveil-logo em{color:#CF6B30!important;}
-
-/* ─── 4 VENDREDI — LA NUIT FAUBOURG ─────────────────────────────
-   Minuit bleu électrique. Or neon. Exclusivité absolue.
-────────────────────────────────────────────────────────────── */
-body.univers-4{
-  --ivoire:#020610;--ivoire-haut:#020610;--parchemin:#060D20;
-  --sable:#0A1430;--sable-fonce:#102040;--champagne:#080E24;
-  --taupe:#7090D0;--taupe-fonce:#A0C0F0;--encre:#E0ECFF;
-  --or:#E8C030;--or-clair:#F0D860;--or-vif:#F8EC90;
-  --soie:#6080FF;--soie-clair:#90A8FF;
-  --bord:1px solid rgba(232,192,48,.2);--bord-fort:1px solid rgba(232,192,48,.5);
-  background:#020610;
-}
-body.univers-4 .carte{
-  background:linear-gradient(135deg,#060D20,#080E24)!important;
-  border-radius:8px!important;
-  border:1px solid rgba(232,192,48,.18)!important;
-  box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 60px rgba(232,192,48,.04),
-             0 0 120px rgba(96,128,255,.03)!important;}
-body.univers-4 .tete{
-  background:#010408!important;
-  border-bottom:1px solid rgba(232,192,48,.15)!important;}
-body.univers-4 .logo em{color:#E8C030!important;}
-body.univers-4 #reveilEcran{background:#020610!important;}
-body.univers-4 .reveil-logo{color:#E0ECFF!important;}
-body.univers-4 .reveil-logo em{color:#E8C030!important;}
-body.univers-4 .reveil-montant{color:#E0ECFF!important;}
-body.univers-4 .reveil-pct{color:#E8C030!important;}
-body.univers-4 .reveil-label-s{color:#7090D0!important;}
-
-/* ─── 5 SAMEDI — L'AURORE ───────────────────────────────────────
-   Aube enflammée. Énergie du samedi. Orange soleil levant.
-────────────────────────────────────────────────────────────── */
-body.univers-5{
-  --ivoire:#FFF3E8;--ivoire-haut:#FFFAF5;--parchemin:#FFE8CC;
-  --sable:#FFD4A8;--sable-fonce:#FFBE80;--champagne:#FFE8C8;
-  --taupe:#993300;--taupe-fonce:#662200;--encre:#3D1800;
-  --or:#CC4400;--or-clair:#E86020;--or-vif:#FF8040;
-  --soie:#993300;--soie-clair:#CC5520;
-  --bord:1px solid rgba(204,68,0,.18);--bord-fort:1px solid rgba(204,68,0,.4);
-  background:#FFF3E8;
-}
-body.univers-5 .carte{
-  border-radius:16px!important;background:rgba(255,255,255,.92)!important;
+.onglet{
+  flex:1!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  gap:.2rem!important;
+  padding:.4rem .15rem .35rem!important;
   border:none!important;
-  box-shadow:0 8px 32px rgba(204,68,0,.12),0 2px 8px rgba(204,68,0,.08)!important;}
-body.univers-5 .tete{
-  background:linear-gradient(135deg,#CC4400,#FF8040)!important;
-  border-bottom:none!important;}
-body.univers-5 .tete *{color:#FFF5EE!important;}
-body.univers-5 .logo,.logo em{color:#FFF5EE!important;}
-body.univers-5 .btn-icone{color:#FFF5EE!important;border-color:rgba(255,245,238,.3)!important;}
-body.univers-5 #reveilEcran{background:linear-gradient(170deg,#CC4400,#FF8040,#FFD080)!important;}
-body.univers-5 .reveil-logo{color:#FFF5EE!important;}
-body.univers-5 .reveil-logo em{color:#FFE0A0!important;}
-body.univers-5 .reveil-montant,.reveil-pct,.reveil-label-s{color:#FFF5EE!important;}
-
-/* ─── 6 DIMANCHE — LA REINE ─────────────────────────────────────
-   Noir absolu. Or impérial. La quintessence du luxe.
-────────────────────────────────────────────────────────────── */
-body.univers-6{
-  --ivoire:#060400;--ivoire-haut:#060400;--parchemin:#0E0900;
-  --sable:#181200;--sable-fonce:#241C00;--champagne:#100C00;
-  --taupe:#C8A020;--taupe-fonce:#E8C840;--encre:#F0E0A0;
-  --or:#C8A000;--or-clair:#E8C020;--or-vif:#F8E050;
-  --soie:#A07800;--soie-clair:#C09820;
-  --bord:1px solid rgba(200,160,0,.2);--bord-fort:1px solid rgba(200,160,0,.5);
-  background:#060400;
+  background:transparent!important;
+  border-radius:14px!important;
+  transition:background .25s,color .25s,transform .15s!important;
+  color:var(--taupe)!important;
 }
-body.univers-6 .carte{
-  background:linear-gradient(160deg,#0E0900,#060400)!important;
-  border-radius:2px!important;
-  border:1px solid rgba(200,160,0,.25)!important;
-  box-shadow:0 8px 40px rgba(0,0,0,.8),0 0 30px rgba(200,160,0,.06)!important;}
-body.univers-6 .tete{
-  background:radial-gradient(ellipse at 50% 0%,#1A1200,#060400)!important;
-  border-bottom:1px solid rgba(200,160,0,.2)!important;}
-body.univers-6 .logo em{color:#C8A000!important;}
-body.univers-6 #reveilEcran{
-  background:radial-gradient(ellipse 80% 60% at 50% 40%,#1A1200,#060400)!important;}
-body.univers-6 .reveil-logo{color:#F0E0A0!important;}
-body.univers-6 .reveil-logo em{color:#C8A000!important;}
-body.univers-6 .reveil-montant{color:#F0E0A0!important;}
-body.univers-6 .reveil-pct{color:#C8A000!important;}
-body.univers-6 .reveil-label-s{color:#A07800!important;}
+.onglet:active{transform:scale(.93)!important;}
+.onglet .onglet-icone{
+  font-size:1.3rem!important;line-height:1.1!important;
+  display:block!important;
+  transition:transform .25s!important;
+}
+.onglet .onglet-label{
+  font-family:"Cormorant Garamond",serif!important;
+  font-size:.52rem!important;letter-spacing:.09em!important;
+  text-transform:uppercase!important;font-weight:600!important;
+  display:block!important;
+}
+.onglet.actif{
+  background:var(--univers-accent)!important;
+  color:#FFFFFF!important;
+}
+.onglet.actif .onglet-icone{transform:scale(1.1) translateY(-1px)!important;}
 
-/* ─── Carte universelle override — forcer l'inheritance correcte ─ */
-body[class*="univers-"] .sac-etat,
-body[class*="univers-"] .patine-mini,
-body[class*="univers-"] .sac-oracle,
-body[class*="univers-"] .arc-pct-text,
-body[class*="univers-"] .arc-label-text,
-body[class*="univers-"] .arc-montant-text{ transition:fill .8s,color .8s; }
-body[class*="univers-"] .arc-pct-text{ fill:var(--encre)!important; }
-body[class*="univers-"] .arc-label-text{ fill:var(--taupe)!important; }
-body[class*="univers-"] .arc-montant-text{ fill:var(--or)!important; }
-body[class*="univers-"] .arc-bg{ stroke:var(--sable-fonce)!important;opacity:.4; }
-body[class*="univers-"] .arc-fill{ stroke:var(--or)!important; }
+/* ─── HEADER AVEC BANDE DE COULEUR ────────────────────────────── */
+header{
+  border-bottom:3px solid var(--univers-accent)!important;
+  padding:.75rem 1rem!important;
+  transition:border-color .7s,background .7s!important;
+}
+.logo{font-size:1.55rem!important;}
+.logo em{color:var(--univers-accent)!important;transition:color .7s!important;}
+.maison-band{
+  font-size:.66rem!important;font-weight:700!important;
+  letter-spacing:.14em!important;color:var(--univers-accent)!important;
+  transition:color .7s!important;
+}
 
-/* ─── Transition globale palette ──────────────────────────────── */
-body[class*="univers-"]{
-  transition:background 1s cubic-bezier(.4,0,.2,1);}
-body[class*="univers-"] .carte{
-  transition:background 1s,border-color 1s,box-shadow 1s;}
-body[class*="univers-"] .tete{
-  transition:background 1s,border-color 1s;}
+/* ─── CARTES AVEC TOP-BORDER COLORÉ ───────────────────────────── */
+.carte{
+  border:none!important;
+  border-top:4px solid var(--univers-accent)!important;
+  border-radius:18px!important;
+  box-shadow:0 2px 16px rgba(0,0,0,.06),0 6px 32px rgba(0,0,0,.04)!important;
+  transition:border-color .7s,box-shadow .3s!important;
+}
+.carte:hover,section.carte:hover{
+  box-shadow:0 4px 24px rgba(0,0,0,.1),0 8px 48px rgba(0,0,0,.06)!important;
+}
+.eyebrow{
+  color:var(--univers-accent)!important;
+  font-weight:600!important;letter-spacing:.2em!important;
+  transition:color .7s!important;
+}
 
-/* ─── Cérémonie améliorée V11 ──────────────────────────────────── */
-#reveilEcran{transition:opacity .6s,background 1s;}
+/* ─── FAB ─────────────────────────────────────────────────────── */
+.fab-virement{
+  background:var(--univers-accent)!important;
+  border-radius:50px!important;
+}
+
+/* ─── 0 LUNDI — ROSE PARISIEN ─────────────────────────────────── */
+body.univers-0{
+  --ivoire:#FFFFFF;--ivoire-haut:#FFFFFF;--parchemin:#FFF0F6;
+  --sable:#FFD8EA;--sable-fonce:#FFB0CC;--champagne:#FFF0F6;
+  --taupe:#A03058;--taupe-fonce:#6A1038;--encre:#2A0010;
+  --or:#E8557A;--or-clair:#F07098;--or-vif:#F890B0;
+  --soie:#E8557A;--soie-clair:#F07098;
+  --bord:1px solid rgba(232,85,122,.18);--bord-fort:1px solid rgba(232,85,122,.45);
+  --univers-accent:#E8557A;--univers-card-bg:#FFFFFF;
+  --saison-accent:#E8557A;background:#FFFFFF;
+}
+body.univers-0 header{background:linear-gradient(120deg,#FFF5F8,#FFFFFF)!important;}
+body.univers-0 .carte{background:linear-gradient(175deg,#FFF5F8,#FFFFFF)!important;}
+body.univers-0 #reveilEcran{background:linear-gradient(150deg,#FF8AAD,#E8557A)!important;}
+
+/* ─── 1 MARDI — CORAIL FLAMME ─────────────────────────────────── */
+body.univers-1{
+  --ivoire:#FFFAF6;--ivoire-haut:#FFFAF6;--parchemin:#FFF0E6;
+  --sable:#FFD8C0;--sable-fonce:#FFAE88;--champagne:#FFF0E6;
+  --taupe:#A04020;--taupe-fonce:#6A2008;--encre:#2A0E00;
+  --or:#FF5733;--or-clair:#FF7A55;--or-vif:#FF9E80;
+  --soie:#FF5733;--soie-clair:#FF7A55;
+  --bord:1px solid rgba(255,87,51,.18);--bord-fort:1px solid rgba(255,87,51,.45);
+  --univers-accent:#FF5733;--univers-card-bg:#FFFAF6;
+  --saison-accent:#FF5733;background:#FFFAF6;
+}
+body.univers-1 header{background:#FF5733!important;border-bottom:none!important;}
+body.univers-1 header *{color:#FFFFFF!important;}
+body.univers-1 .logo em{color:#FFE8D8!important;}
+body.univers-1 .btn-icone{color:#fff!important;border-color:rgba(255,255,255,.3)!important;}
+body.univers-1 .maison-band{color:#FFE8D8!important;}
+body.univers-1 .carte{background:linear-gradient(175deg,#FFF5EF,#FFFAF6)!important;}
+body.univers-1 #reveilEcran{background:linear-gradient(150deg,#FF8055,#FF5733)!important;}
+
+/* ─── 2 MERCREDI — TURQUOISE CÔTE D'AZUR ──────────────────────── */
+body.univers-2{
+  --ivoire:#F4FEFF;--ivoire-haut:#F4FEFF;--parchemin:#DAFAFD;
+  --sable:#B0F0F5;--sable-fonce:#70D8E2;--champagne:#DAFAFD;
+  --taupe:#006870;--taupe-fonce:#003A40;--encre:#001E22;
+  --or:#00A8B0;--or-clair:#20C0C8;--or-vif:#50D8E0;
+  --soie:#00A8B0;--soie-clair:#20C0C8;
+  --bord:1px solid rgba(0,168,176,.18);--bord-fort:1px solid rgba(0,168,176,.45);
+  --univers-accent:#00A8B0;--univers-card-bg:#FFFFFF;
+  --saison-accent:#00A8B0;background:#F4FEFF;
+}
+body.univers-2 header{background:linear-gradient(120deg,#006870,#009090)!important;border-bottom:none!important;}
+body.univers-2 header *{color:#FFFFFF!important;}
+body.univers-2 .logo em{color:#90EEF5!important;}
+body.univers-2 .btn-icone{color:#fff!important;border-color:rgba(255,255,255,.3)!important;}
+body.univers-2 .maison-band{color:#90EEF5!important;}
+body.univers-2 .carte{background:linear-gradient(175deg,#EDFEFF,#FFFFFF)!important;}
+body.univers-2 #reveilEcran{background:linear-gradient(150deg,#006870,#00A8B0)!important;}
+
+/* ─── 3 JEUDI — LILAS ROMANTIQUE ──────────────────────────────── */
+body.univers-3{
+  --ivoire:#FAF5FF;--ivoire-haut:#FAF5FF;--parchemin:#F0E4FF;
+  --sable:#DFC8FF;--sable-fonce:#C5A0FF;--champagne:#F0E4FF;
+  --taupe:#7030C0;--taupe-fonce:#481080;--encre:#200040;
+  --or:#9B5DE5;--or-clair:#B878F0;--or-vif:#D0A0F8;
+  --soie:#9B5DE5;--soie-clair:#B878F0;
+  --bord:1px solid rgba(155,93,229,.18);--bord-fort:1px solid rgba(155,93,229,.45);
+  --univers-accent:#9B5DE5;--univers-card-bg:#FFFFFF;
+  --saison-accent:#9B5DE5;background:#FAF5FF;
+}
+body.univers-3 header{background:linear-gradient(120deg,#5820A0,#9B5DE5)!important;border-bottom:none!important;}
+body.univers-3 header *{color:#FFFFFF!important;}
+body.univers-3 .logo em{color:#E0C8FF!important;}
+body.univers-3 .btn-icone{color:#fff!important;border-color:rgba(255,255,255,.3)!important;}
+body.univers-3 .maison-band{color:#E0C8FF!important;}
+body.univers-3 .carte{background:linear-gradient(175deg,#F8F0FF,#FFFFFF)!important;}
+body.univers-3 #reveilEcran{background:linear-gradient(150deg,#5820A0,#9B5DE5)!important;}
+
+/* ─── 4 VENDREDI — COBALT KLEIN ────────────────────────────────── */
+body.univers-4{
+  --ivoire:#F5F7FF;--ivoire-haut:#F5F7FF;--parchemin:#E4EAFF;
+  --sable:#BCC8FF;--sable-fonce:#8AA0FF;--champagne:#E4EAFF;
+  --taupe:#1030A8;--taupe-fonce:#001878;--encre:#000838;
+  --or:#1A4DE8;--or-clair:#4068F0;--or-vif:#7090F8;
+  --soie:#1A4DE8;--soie-clair:#4068F0;
+  --bord:1px solid rgba(26,77,232,.18);--bord-fort:1px solid rgba(26,77,232,.45);
+  --univers-accent:#1A4DE8;--univers-card-bg:#FFFFFF;
+  --saison-accent:#1A4DE8;background:#F5F7FF;
+}
+body.univers-4 header{background:linear-gradient(120deg,#0A1898,#1A4DE8)!important;border-bottom:none!important;}
+body.univers-4 header *{color:#FFFFFF!important;}
+body.univers-4 .logo em{color:#A0C0FF!important;}
+body.univers-4 .btn-icone{color:#fff!important;border-color:rgba(255,255,255,.3)!important;}
+body.univers-4 .maison-band{color:#A0C0FF!important;}
+body.univers-4 .carte{background:linear-gradient(175deg,#EEF2FF,#FFFFFF)!important;}
+body.univers-4 #reveilEcran{background:linear-gradient(150deg,#0A1898,#1A4DE8)!important;}
+
+/* ─── 5 SAMEDI — MENTHE PÉTILLANTE ─────────────────────────────── */
+body.univers-5{
+  --ivoire:#F2FFF6;--ivoire-haut:#F2FFF6;--parchemin:#DCFFE6;
+  --sable:#B0F0C8;--sable-fonce:#78D8A0;--champagne:#DCFFE6;
+  --taupe:#006830;--taupe-fonce:#003C1A;--encre:#001810;
+  --or:#00B85E;--or-clair:#28CC70;--or-vif:#55E090;
+  --soie:#00B85E;--soie-clair:#28CC70;
+  --bord:1px solid rgba(0,184,94,.18);--bord-fort:1px solid rgba(0,184,94,.45);
+  --univers-accent:#00B85E;--univers-card-bg:#FFFFFF;
+  --saison-accent:#00B85E;background:#F2FFF6;
+}
+body.univers-5 header{background:linear-gradient(120deg,#004820,#00B85E)!important;border-bottom:none!important;}
+body.univers-5 header *{color:#FFFFFF!important;}
+body.univers-5 .logo em{color:#90F0B0!important;}
+body.univers-5 .btn-icone{color:#fff!important;border-color:rgba(255,255,255,.3)!important;}
+body.univers-5 .maison-band{color:#90F0B0!important;}
+body.univers-5 .carte{background:linear-gradient(175deg,#EDFFEF,#FFFFFF)!important;}
+body.univers-5 #reveilEcran{background:linear-gradient(150deg,#004820,#00B85E)!important;}
+
+/* ─── 6 DIMANCHE — MIMOSA DORÉ ─────────────────────────────────── */
+body.univers-6{
+  --ivoire:#FFFBF0;--ivoire-haut:#FFFBF0;--parchemin:#FFF3CC;
+  --sable:#FFE888;--sable-fonce:#FFD040;--champagne:#FFF3CC;
+  --taupe:#806000;--taupe-fonce:#503800;--encre:#281800;
+  --or:#C89000;--or-clair:#D8A820;--or-vif:#ECC040;
+  --soie:#C89000;--soie-clair:#D8A820;
+  --bord:1px solid rgba(200,144,0,.18);--bord-fort:1px solid rgba(200,144,0,.45);
+  --univers-accent:#C89000;--univers-card-bg:#FFFEF8;
+  --saison-accent:#C89000;background:#FFFBF0;
+}
+body.univers-6 header{background:linear-gradient(120deg,#583800,#C89000)!important;border-bottom:none!important;}
+body.univers-6 header *{color:#FFFFFF!important;}
+body.univers-6 .logo em{color:#FFE878!important;}
+body.univers-6 .btn-icone{color:#fff!important;border-color:rgba(255,255,255,.3)!important;}
+body.univers-6 .maison-band{color:#FFE878!important;}
+body.univers-6 .carte{background:linear-gradient(175deg,#FFFBEA,#FFFEF8)!important;}
+body.univers-6 #reveilEcran{background:linear-gradient(150deg,#583800,#C89000)!important;}
+
+/* ─── Arc gauge adaptatif ─────────────────────────────────────── */
+body[class*="univers-"] .arc-pct-text{fill:var(--encre)!important;}
+body[class*="univers-"] .arc-label-text{fill:var(--taupe)!important;}
+body[class*="univers-"] .arc-montant-text{fill:var(--or)!important;}
+body[class*="univers-"] .arc-bg{stroke:var(--sable-fonce)!important;opacity:.5;}
+body[class*="univers-"] .arc-fill{stroke:var(--or)!important;}
+
+/* ─── Transitions globales ────────────────────────────────────── */
+body[class*="univers-"]{transition:background .9s;}
+body[class*="univers-"] .carte{transition:background .9s,border-color .9s,box-shadow .3s;}
+body[class*="univers-"] header{transition:background .9s,border-color .9s;}
+body[class*="univers-"] .onglet.actif{background:var(--univers-accent)!important;}
+body[class*="univers-"] .fab-virement{background:var(--univers-accent)!important;}
+
+/* ─── Ceremony overlay V12 ───────────────────────────────────── */
 .reveil-univers-nom{
-  font-family:"Cormorant Garamond",serif;font-size:.6rem;
-  letter-spacing:.3em;text-transform:uppercase;
-  color:var(--or);margin-top:.3rem;opacity:.8;
-  animation:fade-up .8s .6s both;}
+  font-family:"Cormorant Garamond",serif;font-size:.65rem;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.88);animation:fade-up .8s .35s both;}
 .reveil-chiffre-big{
-  font-family:"Cormorant Garamond",serif;font-size:3.5rem;font-weight:200;
-  color:var(--or);line-height:1;animation:fade-up .8s .8s both;}
+  font-family:"Cormorant Garamond",serif;font-size:4.5rem;font-weight:200;
+  color:#FFFFFF;line-height:1;animation:fade-up .8s .65s both;
+  text-shadow:0 2px 24px rgba(0,0,0,.12);}
 .reveil-chiffre-label{
-  font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--taupe);animation:fade-up .8s 1s both;}
+  font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.75);animation:fade-up .8s .85s both;}
+.reveil-logo{
+  font-family:"Cormorant Garamond",serif;font-size:1.4rem;font-weight:300;
+  color:#FFFFFF;letter-spacing:.22em;text-transform:uppercase;
+  animation:shimmer-logo 1.2s ease-out forwards;opacity:0;}
+.reveil-logo em{font-style:italic;color:rgba(255,255,255,.7);}
+.reveil-montant{font-family:"Cormorant Garamond",serif;font-size:1rem;
+  font-weight:300;color:rgba(255,255,255,.88);}
+.reveil-label-s{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);margin-top:.1rem;}
+
+/* ─── LA VITRINE HERMÈS (page Boutique V12) ──────────────────── */
+.vitrine-hero{text-align:center;padding:1.6rem 1rem 1.2rem;
+  border-bottom:1px solid var(--sable);}
+.vitrine-hero-eyebrow{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--univers-accent);margin-bottom:.5rem;font-weight:600;}
+.vitrine-budget{font-family:"Cormorant Garamond",serif;font-size:3.2rem;
+  font-weight:200;color:var(--encre);line-height:1.1;}
+.vitrine-budget-sub{font-size:.68rem;color:var(--taupe);margin-top:.3rem;
+  letter-spacing:.07em;}
+.vitrine-grille{display:grid;grid-template-columns:repeat(2,1fr);
+  gap:.75rem;padding:1rem;}
+.vitrine-item{background:var(--ivoire-haut);border-radius:14px;
+  padding:1rem .75rem;text-align:center;
+  border:1.5px solid var(--sable);position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;}
+.vitrine-item:active{transform:scale(.96);}
+.vitrine-item-glyph{font-size:1.7rem;margin-bottom:.4rem;line-height:1;}
+.vitrine-item-nom{font-family:"Cormorant Garamond",serif;font-size:.9rem;
+  font-weight:500;color:var(--encre);margin-bottom:.12rem;}
+.vitrine-item-prix{font-size:.72rem;color:var(--taupe);
+  font-variant-numeric:tabular-nums;}
+.vitrine-item-badge{position:absolute;top:.4rem;right:.4rem;
+  font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.18rem .38rem;border-radius:6px;font-weight:700;}
+.badge-dispo{background:#DCFFEC;color:#006830;}
+.badge-manque{background:var(--parchemin);color:var(--taupe);}
+.vitrine-item-barre{height:3px;background:var(--sable);border-radius:2px;
+  margin-top:.6rem;overflow:hidden;}
+.vitrine-item-barre-fill{height:100%;background:var(--univers-accent);
+  border-radius:2px;transition:width 1.2s cubic-bezier(.22,1,.36,1);}
+.vitrine-birkin{margin:1rem;border-radius:18px;
+  background:linear-gradient(150deg,var(--parchemin),var(--ivoire-haut));
+  border:2px solid var(--sable-fonce);padding:1.4rem 1.1rem;text-align:center;}
+.vitrine-birkin-titre{font-family:"Cormorant Garamond",serif;font-size:1.2rem;
+  font-weight:400;color:var(--encre);margin-bottom:.35rem;}
+.vitrine-birkin-sous{font-size:.65rem;color:var(--taupe);
+  margin-bottom:.9rem;letter-spacing:.06em;}
+.vitrine-birkin-barre{height:10px;background:var(--sable);border-radius:5px;
+  overflow:hidden;margin-bottom:.5rem;}
+.vitrine-birkin-barre-fill{height:100%;
+  background:linear-gradient(90deg,var(--or),var(--or-vif));
+  border-radius:5px;transition:width 1.6s cubic-bezier(.22,1,.36,1);}
+.vitrine-birkin-pct{font-family:"Cormorant Garamond",serif;font-size:1.9rem;
+  font-weight:200;color:var(--or);}
+.vitrine-resist-btn{display:block;width:100%;margin-top:1rem;
+  background:var(--univers-accent);color:#FFFFFF;border:none;border-radius:50px;
+  font-family:"Cormorant Garamond",serif;font-size:.82rem;letter-spacing:.1em;
+  padding:.65rem 1rem;cursor:pointer;transition:opacity .2s,transform .15s;}
+.vitrine-resist-btn:active{transform:scale(.97);opacity:.9;}
+.vitrine-resist-compteur{text-align:center;font-size:.65rem;color:var(--taupe);
+  padding:.75rem 1rem 1rem;font-style:italic;}
 
 
 .anticipation-montant{
@@ -2202,6 +2277,18 @@ body[class*="univers-"] .tete{
       <p class="vide" id="histVide">La première page de ton histoire s'écrit avec le médaillon, plus haut.</p>
     </section>
 
+    <!-- V12 VITRINE HERMES -->
+    <section class="carte col-trois" id="vitrineHermes" style="display:none">
+      <div class="vitrine-hero">
+        <div class="vitrine-hero-eyebrow">La Vitrine Hermès</div>
+        <div class="vitrine-budget" id="vitrineBudget">0 €</div>
+        <div class="vitrine-budget-sub">dans ton trésor aujourd'hui</div>
+      </div>
+      <div class="vitrine-grille" id="vitrineGrille"></div>
+      <div id="vitrineBirkinZone"></div>
+      <div class="vitrine-resist-compteur" id="vitrineCompteur"></div>
+    </section>
+
   </div>
 
   <footer>
@@ -2212,21 +2299,25 @@ body[class*="univers-"] .tete{
 
 <!-- ═══════ A1 · Navigation onglets ═══════ -->
 <nav class="nav-onglets" id="navOnglets" aria-label="Navigation principale">
-  <button class="onglet actif" data-onglet="atelier" aria-label="Atelier">
-    <span class="onglet-icone">✦</span>
-    <span style="font-size:.58rem;letter-spacing:.05em">Atelier</span>
+  <button class="onglet actif" data-onglet="atelier" aria-label="Mon Birkin">
+    <span class="onglet-icone">👜</span>
+    <span class="onglet-label">Mon Birkin</span>
   </button>
   <button class="onglet" data-onglet="defis" aria-label="Défis">
-    <span class="onglet-icone">⚜</span>
-    <span style="font-size:.58rem;letter-spacing:.05em">Défis</span>
+    <span class="onglet-icone">🔥</span>
+    <span class="onglet-label">Défis</span>
   </button>
-  <button class="onglet" data-onglet="histoire" aria-label="Histoire">
-    <span class="onglet-icone">📜</span>
-    <span style="font-size:.58rem;letter-spacing:.05em">Histoire</span>
+  <button class="onglet" data-onglet="vitrine" aria-label="Boutique">
+    <span class="onglet-icone">✨</span>
+    <span class="onglet-label">Boutique</span>
   </button>
-  <button class="onglet" data-onglet="collection" aria-label="Collection">
-    <span class="onglet-icone">❖</span>
-    <span style="font-size:.58rem;letter-spacing:.05em">Collection</span>
+  <button class="onglet" data-onglet="histoire" aria-label="Journal">
+    <span class="onglet-icone">📖</span>
+    <span class="onglet-label">Journal</span>
+  </button>
+  <button class="onglet" data-onglet="collection" aria-label="Succès">
+    <span class="onglet-icone">🏆</span>
+    <span class="onglet-label">Succès</span>
   </button>
 </nav>
 
@@ -4270,9 +4361,15 @@ function changerOnglet(id){
   const ongletMap = {
     atelier:    ["sec-atelier","sec-medaillon","sec-defi-jour","sec-hero"],
     defis:      ["sec-defi-jour","sec-hero","sec-salon"],
+    vitrine:    [],
     histoire:   ["sec-rituel","sec-conseil","sec-lettres","sec-hist"],
     collection: ["sec-carnet","sec-succes"],
   };
+  const vitrineEl = $("vitrineHermes");
+  if(vitrineEl){
+    vitrineEl.style.display = id==="vitrine" ? "block" : "none";
+    if(id==="vitrine") rendreVitrine();
+  }
   const actifs = new Set(ongletMap[id] || []);
   sections.querySelectorAll("[data-section]").forEach(el => {
     el.classList.toggle("section-masquee", !actifs.has(el.dataset.section));
@@ -4951,18 +5048,90 @@ function rendreNiveauEnrichi(){
 }
 
 let logoTaps = 0, logoTimer = null;
+
+/* V12 — LA VITRINE HERMES */
+const CATALOGUE_VITRINE = [
+  {id:"twilly",   nom:"Le Twilly",         prix:215,  glyph:"🎀", sous:"soie autour de l'anse"},
+  {id:"calvi",    nom:"Porte-cartes Calvi", prix:330,  glyph:"💳", sous:"le cuir au quotidien"},
+  {id:"carre",    nom:"Le Carré de Soie",  prix:580,  glyph:"🌸", sous:"ton premier Hermès"},
+  {id:"bracelet", nom:"Bracelet Email",     prix:680,  glyph:"💫", sous:"éclat Hermès au poignet"},
+  {id:"kelly",    nom:"Kelly Pochette",     prix:5800, glyph:"👝", sous:"la petite soeur du Birkin"},
+];
+
+function rendreVitrine(){
+  const tot = total();
+  const budgetEl = $("vitrineBudget");
+  if(budgetEl) budgetEl.textContent = fmt(tot) + " €";
+  const grille = $("vitrineGrille");
+  if(grille){
+    grille.innerHTML = "";
+    CATALOGUE_VITRINE.forEach(function(item){
+      const dispo = tot >= item.prix;
+      const pct = Math.min(100, tot / item.prix * 100);
+      const manque = Math.max(0, item.prix - tot);
+      const div = document.createElement("div");
+      div.className = "vitrine-item";
+      div.innerHTML =
+        '<span class="vitrine-item-badge ' + (dispo?"badge-dispo":"badge-manque") + '">'
+        + (dispo ? "Disponible ✓" : "Il manque " + fmt(manque) + " €") + '</span>'
+        + '<div class="vitrine-item-glyph">' + item.glyph + '</div>'
+        + '<div class="vitrine-item-nom">' + item.nom + '</div>'
+        + '<div class="vitrine-item-prix">' + fmt(item.prix) + ' €</div>'
+        + '<div class="vitrine-item-barre"><div class="vitrine-item-barre-fill" style="width:0%"></div></div>';
+      grille.appendChild(div);
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        const f = div.querySelector(".vitrine-item-barre-fill");
+        if(f) f.style.width = pct.toFixed(1)+"%";
+      });});
+    });
+  }
+  const birkinZone = $("vitrineBirkinZone");
+  if(birkinZone){
+    const pct = pctBirkin();
+    const reste = Math.max(0, etat.objectifBirkin - tot);
+    birkinZone.innerHTML =
+      '<div class="vitrine-birkin">'
+      + '<div class="vitrine-birkin-titre">❖ Le Birkin — objectif ultime</div>'
+      + '<div class="vitrine-birkin-sous">' + fmt(etat.objectifBirkin) + ' €'
+      + (reste > 0 ? " · il te manque " + fmt(reste) + " €" : " · Objectif atteint !") + '</div>'
+      + '<div class="vitrine-birkin-barre"><div class="vitrine-birkin-barre-fill" style="width:0%"></div></div>'
+      + '<div class="vitrine-birkin-pct"><span id="vitrinePctNum">0</span> %</div>'
+      + '<button class="vitrine-resist-btn" id="btnVitrineVirement">+ Sceller un virement</button>'
+      + '</div>';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      const f = birkinZone.querySelector(".vitrine-birkin-barre-fill");
+      if(f) f.style.width = pct.toFixed(1)+"%";
+      const pn = $("vitrinePctNum");
+      if(pn) pn.textContent = Math.round(pct);
+    });});
+    const btnV = $("btnVitrineVirement");
+    if(btnV){ btnV.onclick = function(){ changerOnglet("atelier"); ouvrirVirement(); }; }
+  }
+  const cptEl = $("vitrineCompteur");
+  if(cptEl){
+    const nb = etat.resistances ? etat.resistances.length : 0;
+    if(nb > 0){
+      const totalR = etat.resistances.reduce(function(s,r){ return s+(r.montant||0); },0);
+      cptEl.textContent = nb + " résistance" + (nb>1?"s":"") + " — " + fmt(totalR) + " € non dépensés";
+    } else {
+      cptEl.textContent = "Ajoute des résistances pour les voir ici.";
+    }
+  }
+}
+
+
 /* ═══════════════════════════════════════════════════════════
    V10 — LES MAISONS D'HERMES
 ═══════════════════════════════════════════════════════════ */
 
 const MAISONS_JOUR = [
-  { nom:"L'Editorial",        univers:0, mot:"clarte",       sombre:false, couleur:"#7A5A10" },
-  { nom:"Le Velours Noir",     univers:1, mot:"mystere",      sombre:true,  couleur:"#D0508A" },
-  { nom:"La Savane Kelly",     univers:2, mot:"elegance",     sombre:false, couleur:"#1A5C28" },
-  { nom:"L'Atelier Cuivre",   univers:3, mot:"authenticite", sombre:true,  couleur:"#CF6B30" },
-  { nom:"La Nuit Faubourg",    univers:4, mot:"exclusivite",  sombre:true,  couleur:"#E8C030" },
-  { nom:"L'Aurore",           univers:5, mot:"energie",      sombre:false, couleur:"#CC4400" },
-  { nom:"La Reine",            univers:6, mot:"prestige",     sombre:true,  couleur:"#C8A000" },
+  { nom:"Rose Parisien",     univers:0, mot:"audace",    sombre:false, couleur:"#E8557A" },
+  { nom:"Corail Flamme",     univers:1, mot:"energie",   sombre:false, couleur:"#FF5733" },
+  { nom:"Turquoise Azur",    univers:2, mot:"liberte",   sombre:false, couleur:"#00A8B0" },
+  { nom:"Lilas Romantique",  univers:3, mot:"grace",     sombre:false, couleur:"#9B5DE5" },
+  { nom:"Cobalt Klein",      univers:4, mot:"intensite", sombre:false, couleur:"#1A4DE8" },
+  { nom:"Menthe Petillante", univers:5, mot:"vitalite",  sombre:false, couleur:"#00B85E" },
+  { nom:"Mimosa Dore",       univers:6, mot:"prestige",  sombre:false, couleur:"#C89000" },
 ];
 
 function maisonDuJour(){
@@ -4972,18 +5141,12 @@ function maisonDuJour(){
 
 function applyPaletteDuJour(){
   const m = maisonDuJour();
-  // Retirer toutes les classes univers precedentes
   for(let i=0;i<7;i++){
     document.body.classList.remove("palette-"+i);
     document.body.classList.remove("univers-"+i);
   }
   document.body.classList.add("univers-"+m.univers);
-  // Basculer en mode sombre si l'univers l'exige
-  if(m.sombre){
-    document.body.dataset.theme = "nuit";
-  } else {
-    document.body.dataset.theme = etat.theme || "jour";
-  }
+  document.body.dataset.theme = etat.theme || "jour";
 }
 
 function rendreMaisonBand(){

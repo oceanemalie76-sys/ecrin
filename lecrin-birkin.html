@@ -54,6 +54,164 @@
   --bord-fort:1px solid rgba(182,146,78,.28);
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   V10 — LES 7 MAISONS D'HERMES (palettes quotidiennes)
+═══════════════════════════════════════════════════════════ */
+
+/* 0 Lundi Maison de la Soie */
+body.palette-0{--ivoire:#FAF0F4;--ivoire-haut:#FDF5F8;--parchemin:#F5DDE6;
+  --sable:#ECC5D3;--sable-fonce:#D9A3B5;--champagne:#EDCCD8;
+  --taupe:#9C607A;--taupe-fonce:#5E2040;--encre:#3D1025;
+  --or:#C4607A;--or-clair:#E090A0;--or-vif:#EAA8B5;
+  --soie:#9B2040;--soie-clair:#D06080;
+  --saison-1:#EDCCD8;--saison-2:#C9A0B0;--saison-accent:#C4607A;}
+
+/* 1 Mardi Maison du Cuir */
+body.palette-1{--ivoire:#FAF3E8;--ivoire-haut:#FDF8F0;--parchemin:#F2E1C8;
+  --sable:#E4CEAD;--sable-fonce:#CEB08A;--champagne:#E8D5B0;
+  --taupe:#8B6B4A;--taupe-fonce:#5E3D20;--encre:#3D2410;
+  --or:#8B5E3C;--or-clair:#B8844E;--or-vif:#CC9A5E;
+  --soie:#6B3A1F;--soie-clair:#A06040;
+  --saison-1:#E8D5B0;--saison-2:#C8A878;--saison-accent:#8B5E3C;}
+
+/* 2 Mercredi Maison des Cristaux */
+body.palette-2{--ivoire:#F0F5FA;--ivoire-haut:#F6FAFD;--parchemin:#D8E8F5;
+  --sable:#C0D8EE;--sable-fonce:#9ABCD8;--champagne:#D0E4F5;
+  --taupe:#4A7090;--taupe-fonce:#1E3F60;--encre:#0E1E35;
+  --or:#2C6090;--or-clair:#4A88C0;--or-vif:#68A8D8;
+  --soie:#1A3F66;--soie-clair:#3A68A8;
+  --saison-1:#D0E4F5;--saison-2:#9ABCD8;--saison-accent:#2C6090;}
+
+/* 3 Jeudi Maison du Bois */
+body.palette-3{--ivoire:#F2F5F0;--ivoire-haut:#F7FAF5;--parchemin:#DCE8D8;
+  --sable:#C0D8BC;--sable-fonce:#9ABC94;--champagne:#D0E4CC;
+  --taupe:#4A6B48;--taupe-fonce:#2A4A28;--encre:#142014;
+  --or:#3D6B3A;--or-clair:#5C8F58;--or-vif:#7AAD74;
+  --soie:#2A4D28;--soie-clair:#4A7848;
+  --saison-1:#D0E4CC;--saison-2:#9ABC94;--saison-accent:#3D6B3A;}
+
+/* 4 Vendredi Maison Doree */
+body.palette-4{--or:#A07830;--or-clair:#C8A050;--or-vif:#DCC070;
+  --saison-accent:#A07830;}
+
+/* 5 Samedi Maison des Jardins */
+body.palette-5{--ivoire:#FAF0FA;--ivoire-haut:#FDF5FD;--parchemin:#EED8EE;
+  --sable:#DCC0DC;--sable-fonce:#C4A0C4;--champagne:#E8CCE8;
+  --taupe:#7A4A7A;--taupe-fonce:#4E2A4E;--encre:#2A1030;
+  --or:#8A4A84;--or-clair:#B070AC;--or-vif:#C890C0;
+  --soie:#5E2055;--soie-clair:#9060A0;
+  --saison-1:#E8CCE8;--saison-2:#C4A0C4;--saison-accent:#8A4A84;}
+
+/* 6 Dimanche Maison Royale */
+body.palette-6{--ivoire:#FAF5E0;--ivoire-haut:#FDF9EC;--parchemin:#F5E8B8;
+  --sable:#E8D490;--sable-fonce:#D4B860;--champagne:#F0E0A0;
+  --taupe:#8B7040;--taupe-fonce:#5E4610;--encre:#352200;
+  --or:#8B6914;--or-clair:#C49A28;--or-vif:#E0BC48;
+  --soie:#5E4400;--soie-clair:#A07820;
+  --saison-1:#F0E0A0;--saison-2:#D4B860;--saison-accent:#8B6914;}
+
+/* V10 Bandeau Maison du Jour */
+.maison-band{font:400 .65rem/1 "Cormorant Garamond",serif;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--or);opacity:.85;margin-top:.18rem;
+  display:flex;align-items:center;gap:.5rem;}
+.maison-band .maison-sep{opacity:.4;}
+.maison-band .maison-mot{font-style:italic;opacity:.7;}
+
+/* V10 Arc Gauge */
+#arcProgressZone{margin:.8rem 0 .4rem;display:flex;flex-direction:column;align-items:center;}
+.arc-gauge-svg{width:200px;height:120px;overflow:visible;}
+.arc-bg{transition:stroke .6s;}
+.arc-fill{transition:stroke-dasharray 1.4s cubic-bezier(.22,1,.36,1),stroke .6s;}
+.arc-pct-text{font-family:"Cormorant Garamond",serif;font-size:1.6rem;
+  font-weight:500;fill:var(--encre);transition:fill .6s;}
+.arc-label-text{font-family:"Cormorant Garamond",serif;font-size:.65rem;
+  fill:var(--taupe);letter-spacing:.12em;text-transform:uppercase;transition:fill .6s;}
+.arc-montant-text{font-family:"Cormorant Garamond",serif;font-size:.72rem;
+  fill:var(--or);letter-spacing:.06em;transition:fill .6s;}
+
+/* V10 Respiration du Birkin */
+@keyframes respiration{
+  0%,100%{transform:scale(1) translateY(0);}
+  50%{transform:scale(1.022) translateY(-4px);}
+}
+.sac-pivot{animation:respiration 5s ease-in-out infinite;}
+
+/* V10 Ceremonie Le Reveil du Faubourg */
+#reveilEcran{position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ivoire-haut);
+  opacity:0;pointer-events:none;transition:opacity .5s;}
+#reveilEcran.actif{opacity:1;pointer-events:all;}
+#reveilEcran.sortie{opacity:0;pointer-events:none;}
+.reveil-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 60%,var(--or-clair),transparent 70%);
+  opacity:.12;pointer-events:none;}
+.reveil-content{position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;
+  gap:.9rem;padding:2rem 1.5rem;text-align:center;max-width:340px;}
+.reveil-logo{font-family:"Cormorant Garamond",serif;font-size:1.7rem;font-weight:400;
+  color:var(--encre);letter-spacing:.12em;
+  animation:shimmer-logo 2.4s ease-out forwards;opacity:0;}
+.reveil-logo em{font-style:italic;color:var(--or);}
+@keyframes shimmer-logo{
+  0%{opacity:0;transform:translateY(-12px);}
+  20%{opacity:1;transform:translateY(0);}
+  100%{opacity:1;transform:translateY(0);}}
+.reveil-maison{font-family:"Cormorant Garamond",serif;font-size:.7rem;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--or);
+  animation:fade-up .8s .3s both;}
+@keyframes fade-up{
+  0%{opacity:0;transform:translateY(8px);}
+  100%{opacity:1;transform:translateY(0);}}
+#reveilSacWrap{width:180px;height:160px;position:relative;
+  animation:fade-up .8s .5s both;}
+#reveilSacSvg{width:180px;height:155px;}
+#reveilSacSvg path,#reveilSacSvg line,#reveilSacSvg rect,
+#reveilSacSvg polyline,#reveilSacSvg polygon{
+  fill:none;stroke:var(--or);stroke-width:1.2;
+  stroke-dasharray:var(--pathlen,800) var(--pathlen,800);
+  stroke-dashoffset:var(--pathlen,800);
+  animation:dessiner 2.2s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes dessiner{to{stroke-dashoffset:0;}}
+.reveil-stats{display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  animation:fade-up .8s 1s both;}
+.reveil-montant{font-family:"Cormorant Garamond",serif;font-size:2.2rem;font-weight:300;
+  color:var(--encre);}
+.reveil-pct{font-family:"Cormorant Garamond",serif;font-size:1.1rem;
+  font-weight:400;color:var(--or);letter-spacing:.08em;}
+.reveil-label-s{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--taupe);margin-top:.1rem;}
+.reveil-fermer{margin-top:.5rem;background:transparent;border:1px solid var(--or);
+  color:var(--or);font-family:"Cormorant Garamond",serif;
+  font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.5rem 1.4rem;cursor:pointer;border-radius:2px;
+  opacity:0;transition:opacity .5s,background .3s,color .3s;}
+#reveilEcran.btn-visible .reveil-fermer{opacity:1;}
+.reveil-fermer:hover{background:var(--or);color:var(--ivoire-haut);}
+
+/* V10 Moment de Verite */
+#momentVeriteNotif{position:fixed;top:0;left:50%;
+  transform:translateX(-50%) translateY(-110%);
+  width:min(380px,94vw);z-index:8000;
+  background:var(--ivoire-haut);border-bottom:2px solid var(--or);
+  border-radius:0 0 12px 12px;
+  padding:1.2rem 1.4rem 1rem;
+  box-shadow:0 8px 32px rgba(0,0,0,.12);
+  transition:transform .6s cubic-bezier(.22,1,.36,1);}
+#momentVeriteNotif.actif{transform:translateX(-50%) translateY(0);}
+.mv-eyebrow{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--or);margin-bottom:.4rem;}
+.mv-titre{font-family:"Cormorant Garamond",serif;font-size:1.25rem;
+  font-weight:400;color:var(--encre);margin-bottom:.25rem;}
+.mv-sub{font-size:.78rem;color:var(--taupe);margin-bottom:.8rem;line-height:1.4;}
+.mv-actions{display:flex;gap:.6rem;flex-wrap:wrap;}
+.mv-btn{font-family:"Cormorant Garamond",serif;font-size:.78rem;
+  letter-spacing:.1em;border:none;cursor:pointer;padding:.4rem .9rem;border-radius:2px;}
+.mv-btn-or{background:var(--or);color:var(--ivoire-haut);}
+.mv-btn-ghost{background:transparent;border:1px solid var(--sable-fonce);color:var(--taupe);}
+
 /* ───────────── 2. VARIABLES — NUIT SOMPTUEUSE ───────────── */
 body[data-theme="nuit"]{
   --ivoire:#0F0B07;        --ivoire-haut:#171108;   --parchemin:#1C140B;
@@ -1711,6 +1869,7 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
     <div class="tete-centre">
       <div class="logo" id="logo">L'<em>Écrin</em></div>
       <div class="date-jour" id="dateJour"></div>
+          <div class="maison-band" id="maisonBand"></div>
       <div class="humeur" id="humeur"></div>
       <div class="devise-affiche" id="deviseEntete" hidden></div>
     </div>
@@ -1751,6 +1910,7 @@ body[data-theme="nuit"] .anticipation-ecran{background:rgba(10,7,4,.9)}
         </div>
         <div class="sac-pourcent"><span id="sacPct">0</span><sup>%</sup></div>
         <div class="sac-montant"><span id="sacMontant">0</span> € sur <span id="sacObjectif">10 000</span> €</div>
+        <div id="arcProgressZone"></div>
         <p class="sac-etat" id="sacEtat"></p>
         <p class="patine-mini" id="patineMini"></p>
         <p class="sac-oracle" id="oracle"></p>
@@ -2536,7 +2696,9 @@ const ETAT_DEFAUT = {
   notifActivees: false,   /* push notifications activées */
   objectifSemaine: 50,    /* objectif hebdomadaire en € */
   matinVu: null,          /* "YYYY-MM-DD" du dernier message du matin vu */
-  flashFait: null,        /* "YYYY-MM-DD" du dernier défi éclair validé */
+  flashFait: null,        /* "YYYY-MM-DD" du dernier defi eclair valide */
+  reveilVu: null,        /* "YYYY-MM-DD" du dernier reveil du Faubourg vu */
+  momentVeriteVu: null,  /* "YYYY-MM-DD" du dernier Moment de Verite vu */
   digestVu: null,         /* "YYYY-MM-DD" du dernier digest hebdo fermé */
   /* V7.1 — La Trame des Jours */
   patine: 0,                  /* jours uniques de rituel validés, monotone */
@@ -2742,6 +2904,7 @@ function rendreEnTete(){
   }
   $("btnSon").classList.toggle("off", !etat.sons);
   $("btnTheme").textContent = etat.theme === "nuit" ? "☀" : "☾";
+  rendreMaisonBand();
 }
 
 /* ─── Particules de saison (canvas — algorithme préservé) ─── */
@@ -2819,6 +2982,7 @@ function rendreAtelier(){
   rendrePatine();
   rendrePierres();
   rendrePaliers();
+  rendreArcProgress();
 }
 function rendreOracle(){
   const o = $("oracle"); const reste = etat.objectifBirkin - total();
@@ -3243,6 +3407,8 @@ function rendreTout(){
   rendreBarreSticky(); rendreFlamme(); rendreGraphTimeline();
   rendreCalcAnti(); rendreHorizonAnime(); rendreDigest();
   rendreFlashDefi(); rendreNiveauEnrichi();
+  /* V10 */
+  rendreArcProgress(); rendreMaisonBand();
 }
 
 /* ============================================================ INTERACTIONS ============================================================ */
@@ -4603,6 +4769,189 @@ function rendreNiveauEnrichi(){
 }
 
 let logoTaps = 0, logoTimer = null;
+/* ═══════════════════════════════════════════════════════════
+   V10 — LES MAISONS D'HERMES
+═══════════════════════════════════════════════════════════ */
+
+const MAISONS_JOUR = [
+  { nom:"Maison de la Soie",   palette:0, mot:"fluidite",    couleur:"#C4607A" },
+  { nom:"Maison du Cuir",      palette:1, mot:"authenticite",couleur:"#8B5E3C" },
+  { nom:"Maison des Cristaux", palette:2, mot:"clarte",      couleur:"#2C6090" },
+  { nom:"Maison du Bois",      palette:3, mot:"patience",    couleur:"#3D6B3A" },
+  { nom:"Maison Doree",        palette:4, mot:"rayonnement", couleur:"#B6924E" },
+  { nom:"Maison des Jardins",  palette:5, mot:"croissance",  couleur:"#8A4A84" },
+  { nom:"Maison Royale",       palette:6, mot:"prestige",    couleur:"#8B6914" },
+];
+
+function maisonDuJour(){
+  const j = new Date().getDay();
+  return MAISONS_JOUR[j === 0 ? 6 : j - 1];
+}
+
+function applyPaletteDuJour(){
+  const m = maisonDuJour();
+  for(let i=0;i<7;i++) document.body.classList.remove("palette-"+i);
+  document.body.classList.add("palette-"+m.palette);
+}
+
+function rendreMaisonBand(){
+  const el = $("maisonBand"); if(!el) return;
+  const m = maisonDuJour();
+  el.innerHTML = '<span class="maison-nom">' + m.nom +
+    '</span><span class="maison-sep"> · </span>' +
+    '<span class="maison-mot">' + m.mot + '</span>';
+}
+
+function rendreArcProgress(){
+  const zone = $("arcProgressZone"); if(!zone) return;
+  const pct = pctBirkin();
+  const R=80, CX=100, CY=100, CIRC=2*Math.PI*R, ARC=CIRC*0.75;
+  const arcFill = Math.max(0, Math.min(ARC, pct/100*ARC));
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  let svg = document.getElementById("arcGaugeSvg");
+  if(!svg){
+    svg = document.createElementNS(SVG_NS,"svg");
+    svg.id="arcGaugeSvg"; svg.setAttribute("viewBox","0 0 200 130");
+    svg.setAttribute("class","arc-gauge-svg"); svg.setAttribute("aria-hidden","true");
+    const bg = document.createElementNS(SVG_NS,"circle");
+    bg.setAttribute("cx",CX); bg.setAttribute("cy",CY); bg.setAttribute("r",R);
+    bg.setAttribute("fill","none"); bg.setAttribute("stroke","rgba(182,146,78,.12)");
+    bg.setAttribute("stroke-width","8");
+    bg.setAttribute("stroke-dasharray",ARC.toFixed(1)+" "+CIRC.toFixed(1));
+    bg.setAttribute("stroke-linecap","round"); bg.setAttribute("class","arc-bg");
+    bg.setAttribute("transform","rotate(135 "+CX+" "+CY+")");
+    const fi = document.createElementNS(SVG_NS,"circle");
+    fi.setAttribute("cx",CX); fi.setAttribute("cy",CY); fi.setAttribute("r",R);
+    fi.setAttribute("fill","none"); fi.setAttribute("stroke","var(--or)");
+    fi.setAttribute("stroke-width","8");
+    fi.setAttribute("stroke-dasharray","0 "+CIRC.toFixed(1));
+    fi.setAttribute("stroke-linecap","round"); fi.setAttribute("class","arc-fill");
+    fi.setAttribute("id","arcFillPath");
+    fi.setAttribute("transform","rotate(135 "+CX+" "+CY+")");
+    const t1 = document.createElementNS(SVG_NS,"text");
+    t1.setAttribute("x",CX); t1.setAttribute("y","90");
+    t1.setAttribute("text-anchor","middle"); t1.setAttribute("class","arc-pct-text");
+    t1.setAttribute("id","arcTxtPct"); t1.textContent="0 %";
+    const t2 = document.createElementNS(SVG_NS,"text");
+    t2.setAttribute("x",CX); t2.setAttribute("y","112");
+    t2.setAttribute("text-anchor","middle"); t2.setAttribute("class","arc-label-text");
+    t2.textContent="vers le Birkin";
+    const t3 = document.createElementNS(SVG_NS,"text");
+    t3.setAttribute("x",CX); t3.setAttribute("y","128");
+    t3.setAttribute("text-anchor","middle"); t3.setAttribute("class","arc-montant-text");
+    t3.setAttribute("id","arcTxtMontant"); t3.textContent="";
+    svg.appendChild(bg); svg.appendChild(fi);
+    svg.appendChild(t1); svg.appendChild(t2); svg.appendChild(t3);
+    zone.appendChild(svg);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      const fp=document.getElementById("arcFillPath");
+      if(fp) fp.setAttribute("stroke-dasharray",arcFill.toFixed(1)+" "+CIRC.toFixed(1));
+      const tp=document.getElementById("arcTxtPct");
+      if(tp) tp.textContent=(pct<1&&pct>0?pct.toFixed(1):Math.round(pct))+" %";
+      const tm=document.getElementById("arcTxtMontant");
+      if(tm) tm.textContent=fmt(total())+" €";
+    }));
+  } else {
+    const fp=document.getElementById("arcFillPath");
+    if(fp) fp.setAttribute("stroke-dasharray",arcFill.toFixed(1)+" "+CIRC.toFixed(1));
+    const tp=document.getElementById("arcTxtPct");
+    if(tp) tp.textContent=(pct<1&&pct>0?pct.toFixed(1):Math.round(pct))+" %";
+    const tm=document.getElementById("arcTxtMontant");
+    if(tm) tm.textContent=fmt(total())+" €";
+  }
+}
+
+function lancerReveil(){
+  if(etat.reveilVu===cleJour()) return;
+  if(!etat.onboardingFait||etat.virements.length<1) return;
+  const ecran=$("reveilEcran"); if(!ecran) return;
+  const m=maisonDuJour();
+  const rmEl=$("reveilMaison"); if(rmEl) rmEl.textContent=m.nom;
+  const sacSvg=$("reveilSacSvg");
+  if(sacSvg){
+    sacSvg.innerHTML=construireSac(pctBirkin());
+    const paths=sacSvg.querySelectorAll("path,polyline,line,rect,circle,polygon");
+    let delay=0.3;
+    paths.forEach(function(p){
+      let len=200;
+      try{ len=p.getTotalLength?p.getTotalLength():200; }catch(e){}
+      len=Math.max(len,20);
+      p.style.setProperty("--pathlen",len+"px");
+      p.style.strokeDasharray=len+" "+len;
+      p.style.strokeDashoffset=len;
+      p.style.animationDelay=delay+"s";
+      p.style.animationDuration="1.8s";
+      p.style.fill="none";
+      p.style.stroke="var(--or)";
+      p.style.strokeWidth="1.2";
+      delay+=0.04;
+    });
+  }
+  const totalEur=total(); const pct=pctBirkin();
+  const mvEl=$("reveilMontant"); const pvEl=$("reveilPct");
+  if(mvEl) mvEl.textContent="0 €";
+  if(pvEl) pvEl.textContent="0 %";
+  ecran.classList.remove("sortie");
+  ecran.classList.add("actif");
+  let startTime=null; const dur=2000;
+  function animCountUp(ts){
+    if(!startTime) startTime=ts;
+    const prog=Math.min(1,(ts-startTime)/dur);
+    const ease=1-Math.pow(1-prog,3);
+    if(mvEl) mvEl.textContent=Math.round(totalEur*ease)+" €";
+    if(pvEl) pvEl.textContent=(pct*ease).toFixed(1)+" %";
+    if(prog<1) requestAnimationFrame(animCountUp);
+    else{
+      if(mvEl) mvEl.textContent=fmt(totalEur)+" €";
+      if(pvEl) pvEl.textContent=(pct<1&&pct>0?pct.toFixed(1):Math.round(pct))+" %";
+    }
+  }
+  setTimeout(()=>requestAnimationFrame(animCountUp),600);
+  setTimeout(()=>ecran.classList.add("btn-visible"),2500);
+  setTimeout(()=>fermerReveil(),5200);
+  const btn=$("btnReveilFermer");
+  if(btn){ btn.onclick=null; btn.onclick=fermerReveil; }
+  ecran.onclick=function(e){
+    if(e.target===ecran||e.target.classList.contains("reveil-bg")) fermerReveil();
+  };
+  etat.reveilVu=cleJour(); sauver();
+}
+
+function fermerReveil(){
+  const ecran=$("reveilEcran"); if(!ecran) return;
+  ecran.classList.add("sortie");
+  setTimeout(()=>{ ecran.classList.remove("actif","sortie","btn-visible"); },500);
+}
+
+const MV_MESSAGES=[
+  { titre:"15 minutes se sont ecoulees.", sub:"Tu es encore la, et tu economies. C'est ca, la vraie discipline." },
+  { titre:"Tu resistes, et c'est sublime.", sub:"Chaque minute passee sans acheter est une pierre de plus vers le Faubourg." },
+  { titre:"La patience est un luxe.", sub:"Hermes le sait. Et maintenant, toi aussi." },
+  { titre:"Tu construis quelque chose de rare.", sub:"Pas seulement un sac — une version de toi qui dit non pour mieux dire oui." },
+  { titre:"Un virement vaut mille achats.", sub:"Ce que tu epargnes aujourd'hui te rapproche de ce que tu veux vraiment." },
+];
+
+function lancerMomentVerite(){
+  if(etat.momentVeriteVu===cleJour()) return;
+  const notif=$("momentVeriteNotif"); if(!notif) return;
+  const idx=sceau(cleJour(),MV_MESSAGES.length);
+  const msg=MV_MESSAGES[idx%MV_MESSAGES.length];
+  const t=$("mvTitre"); const s=$("mvSub");
+  if(t) t.textContent=msg.titre;
+  if(s) s.textContent=msg.sub;
+  notif.classList.add("actif");
+  const btnR=$("btnMvResiste"); const btnF=$("btnMvFermer");
+  if(btnR){ btnR.onclick=null; btnR.onclick=function(){ fermerMomentVerite(); ouvrirVirement(); };}
+  if(btnF){ btnF.onclick=null; btnF.onclick=fermerMomentVerite; }
+  etat.momentVeriteVu=cleJour(); sauver();
+}
+
+function fermerMomentVerite(){
+  const notif=$("momentVeriteNotif"); if(!notif) return;
+  notif.classList.remove("actif");
+}
+
+
 function initEvenements(){
   $("btnMedaillon").addEventListener("click", () => ouvrirVirement(null, true));
   document.querySelectorAll(".puce").forEach(p =>
@@ -4739,6 +5088,10 @@ changerOnglet("atelier");
 afficherFAB(true);
 verifierMessageMatin();
 if(etat.notifActivees) planifierNotificationLocale();
+/* V10 */
+applyPaletteDuJour();
+setTimeout(() => lancerReveil(), 400);
+setTimeout(() => lancerMomentVerite(), 900000);
 
 /* V7 — Premier lancement : ouvrir l'onboarding ; sinon, montrer le bouton de re-personnalisation */
 if(!etat.onboardingFait){
@@ -4771,5 +5124,32 @@ if(!etat.onboardingFait){
   <button class="cermo-btn" id="btnCermoFermer">Continuer vers le Birkin →</button>
 </div>
 
+
+<!-- V10 Le Reveil du Faubourg -->
+<div id="reveilEcran" role="dialog" aria-modal="true" aria-label="Le Reveil du Faubourg">
+  <div class="reveil-bg"></div>
+  <div class="reveil-content">
+    <div class="reveil-logo">L'<em>Ecrin</em></div>
+    <div class="reveil-maison" id="reveilMaison"></div>
+    <div id="reveilSacWrap"><svg id="reveilSacSvg" viewBox="0 0 300 260"></svg></div>
+    <div class="reveil-stats">
+      <div class="reveil-montant" id="reveilMontant">0 €</div>
+      <div class="reveil-pct" id="reveilPct">0 %</div>
+      <div class="reveil-label-s">vers ton Birkin</div>
+    </div>
+    <button class="reveil-fermer" id="btnReveilFermer">Entrer</button>
+  </div>
+</div>
+
+<!-- V10 Moment de Verite -->
+<div id="momentVeriteNotif" role="alertdialog" aria-label="Moment de Verite">
+  <div class="mv-eyebrow">Moment de Verite</div>
+  <div class="mv-titre" id="mvTitre"></div>
+  <div class="mv-sub" id="mvSub"></div>
+  <div class="mv-actions">
+    <button id="btnMvResiste" class="mv-btn mv-btn-or">J'ai resiste</button>
+    <button id="btnMvFermer" class="mv-btn mv-btn-ghost">Fermer</button>
+  </div>
+</div>
 </body>
 </html>
